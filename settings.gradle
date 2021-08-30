@@ -11,6 +11,7 @@ rootProject.name = "AppCha"
 include ':presentation'
 include ':domain'
 include ':data'
+include ':remote'
 
 for (project in rootProject.children) {
     def name = project.name

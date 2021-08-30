@@ -4,7 +4,7 @@ import com.editor.appcha.data.source.GreeterRemoteDataSource
 import com.editor.appcha.domain.model.Greeter
 import com.editor.appcha.domain.repo.GreeterRepository
 
-class GreeterRepositoryImpl(
+internal class GreeterRepositoryImpl(
     private val source: GreeterRemoteDataSource
 ) : GreeterRepository {
 
