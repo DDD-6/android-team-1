@@ -12,6 +12,7 @@ include ':presentation'
 include ':domain'
 include ':data'
 include ':remote'
+include ':local'
 
 for (project in rootProject.children) {
     def name = project.name
