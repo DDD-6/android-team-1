@@ -1,5 +1,5 @@
 package com.editor.appcha.domain.model
 
-class Greeter(
+data class Greeter(
     val message: String
 )

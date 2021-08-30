@@ -7,8 +7,10 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "AppCha"
+
 include ':presentation'
 include ':domain'
+include ':data'
 
 for (project in rootProject.children) {
     def name = project.name
