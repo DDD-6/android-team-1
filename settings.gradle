@@ -8,3 +8,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "AppCha"
 include ':presentation'
+
+for (project in rootProject.children) {
+    def name = project.name
+    project.projectDir = file("modules/${name}")
+}
