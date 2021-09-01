@@ -6,5 +6,15 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "My Application"
-include ':app'
+rootProject.name = "AppCha"
+
+include ':presentation'
+include ':domain'
+include ':data'
+include ':remote'
+include ':local'
+
+for (project in rootProject.children) {
+    def name = project.name
+    project.projectDir = file("modules/${name}")
+}
