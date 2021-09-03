@@ -110,7 +110,6 @@ sealed class Result<out T> {
         failure(e)
     }
 
-
     companion object {
         fun <T> success(value: T): Result<T> = Success(value)
 
