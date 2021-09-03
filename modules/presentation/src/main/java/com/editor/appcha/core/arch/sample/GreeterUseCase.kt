@@ -3,6 +3,8 @@ package com.editor.appcha.core.arch.sample
 import com.editor.appcha.core.arch.model.DataModel
 import com.editor.appcha.core.arch.model.DomainModel
 import com.editor.appcha.core.arch.model.RemoteModel
+import com.editor.appcha.core.arch.model.data
+import com.editor.appcha.core.arch.model.remote
 import com.editor.appcha.core.arch.usecase.FlowUseCase
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -10,10 +12,15 @@ import kotlinx.coroutines.flow.flow
 
 class GreeterUseCase : FlowUseCase<String, Greeter>() {
 
-
     override fun execute(param: String): Flow<Greeter> = flow {
         delay(500L)
-        emit(Greeter("Hello $param"))
+
+        val result = data {
+            remote {
+                GreeterRemote("Hello $param")
+            }
+        }
+        emit(result)
     }
 }
 
