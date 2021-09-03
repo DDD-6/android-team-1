@@ -3,14 +3,17 @@ package com.editor.appcha.core.arch.sample
 import com.editor.appcha.core.arch.model.DataModel
 import com.editor.appcha.core.arch.model.DomainModel
 import com.editor.appcha.core.arch.model.RemoteModel
-import com.editor.appcha.core.arch.usecase.ResultUseCase
+import com.editor.appcha.core.arch.usecase.FlowUseCase
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
-class GreeterUseCase : ResultUseCase<String, Greeter>() {
+class GreeterUseCase : FlowUseCase<String, Greeter>() {
 
-    override suspend fun execute(param: String): Greeter {
+
+    override fun execute(param: String): Flow<Greeter> = flow {
         delay(500L)
-        return Greeter("Hello $param")
+        emit(Greeter("Hello $param"))
     }
 }
 
