@@ -46,7 +46,7 @@ abstract class AbstractViewModel<VE : ViewEvent, VS : ViewState>(
 
     protected fun launch(
         context: CoroutineContext = EmptyCoroutineContext,
-        start: CoroutineStart = CoroutineStart.LAZY,
+        start: CoroutineStart = CoroutineStart.DEFAULT,
         onError: (Throwable) -> Unit = ::onError,
         block: suspend CoroutineScope.() -> Unit,
     ) {
