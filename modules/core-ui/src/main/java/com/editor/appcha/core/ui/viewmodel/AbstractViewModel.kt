@@ -49,9 +49,9 @@ abstract class AbstractViewModel<VE : ViewEvent, VS : ViewState>(
         start: CoroutineStart = CoroutineStart.DEFAULT,
         onError: (Throwable) -> Unit = ::onError,
         block: suspend CoroutineScope.() -> Unit,
-    ) {
+    ): Job {
         val exceptionHandler = CoroutineExceptionHandler { _, throwable -> onError(throwable) }
-        viewModelScope.launch(
+        return viewModelScope.launch(
             context = context + exceptionHandler,
             start = start,
             block = block
