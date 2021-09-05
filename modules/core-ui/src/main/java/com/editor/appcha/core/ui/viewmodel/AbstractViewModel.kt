@@ -50,18 +50,12 @@ abstract class AbstractViewModel<VE : ViewEvent, VS : ViewState>(
         onError: (Throwable) -> Unit = ::onError,
         block: suspend CoroutineScope.() -> Unit,
     ) {
-        val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
-            _loadState.value = LoadState.ERROR
-            onError(throwable)
-        }
+        val exceptionHandler = CoroutineExceptionHandler { _, throwable -> onError(throwable) }
         viewModelScope.launch(
             context = context + exceptionHandler,
-            start = start
-        ) {
-            _loadState.update { LoadState.LOADING }
-            block()
-            _loadState.update { LoadState.NOT_LOADING }
-        }
+            start = start,
+            block = block
+        )
     }
 
     protected suspend fun <T> Flow<Result<T>>.collectResult(
