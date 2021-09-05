@@ -1,51 +1,66 @@
 package com.editor.appcha.ui.main
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import com.editor.appcha.core.arch.sample.GreeterModel
+import com.editor.appcha.core.arch.sample.GreeterUseCase
+import com.editor.appcha.core.ui.event.ViewEvent
+import com.editor.appcha.core.ui.state.ViewState
+import com.editor.appcha.core.ui.viewmodel.AbstractViewModel
 import com.editor.appcha.domain.usecase.GetNameUseCase
 import com.editor.appcha.domain.usecase.SayHelloUseCase
-import kotlinx.coroutines.launch
+import com.editor.appcha.ui.main.GreeterViewModel.Event
+import com.editor.appcha.ui.main.GreeterViewModel.State
+import kotlinx.coroutines.flow.map
 
 class GreeterViewModel(
     private val getNameUseCase: GetNameUseCase,
     private val sayHelloUseCase: SayHelloUseCase
-) : ViewModel() {
+) : AbstractViewModel<Event, State>(State()) {
 
-    val input: MutableState<String> = mutableStateOf("")
-    val items: MutableState<List<String>> = mutableStateOf(emptyList())
+    sealed class Event : ViewEvent
+
+    data class State(
+        val input: String = "",
+        val items: List<GreeterModel> = emptyList()
+    ) : ViewState
+
+    private val greeterUseCase = GreeterUseCase()
 
     init {
         fetchName()
     }
 
     fun fetchName() {
-        viewModelScope.launch {
-            input.value = getNameUseCase()
+        launch {
+            updateState { it.copy(input = getNameUseCase()) }
         }
     }
 
     fun sayHello() {
-        viewModelScope.launch {
-            val name = input.value
-            val message = sayHelloUseCase(name).message
-            input.value = ""
-            items.value = items.value + listOf(message)
+        launch {
+            val name = state.value.input
+            greeterUseCase(name)
+                .map { result -> result.map { GreeterModel(it) } }
+                .collectResult { value ->
+                    updateState {
+                        it.copy(
+                            input = "",
+                            items = it.items + listOf(GreeterModel(value.message))
+                        )
+                    }
+                }
         }
     }
 
-    fun onInputChanged(input: String) {
-        this.input.value = input
-    }
+    fun onInputChanged(input: String) = updateState { it.copy(input = input) }
 
     class Factory(
         private val getNameUseCase: GetNameUseCase,
         private val sayHelloUseCase: SayHelloUseCase
     ) : ViewModelProvider.Factory {
 
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T = GreeterViewModel(
+        override fun <T : ViewModel> create(modelClass: Class<T>): T = GreeterViewModel(
             getNameUseCase = getNameUseCase,
             sayHelloUseCase = sayHelloUseCase
         ) as T

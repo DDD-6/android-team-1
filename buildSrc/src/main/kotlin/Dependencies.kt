@@ -18,6 +18,9 @@ object Dependencies {
         const val DATA                      = ":data"
         const val REMOTE                    = ":remote"
         const val LOCAL                     = ":local"
+
+        const val CORE_ARCH                 = ":core-arch"
+        const val CORE_UI                   = ":core-ui"
     }
 
     //Classpath
@@ -65,4 +68,5 @@ object Dependencies {
     const val LIFECYCLE_VIEWMODEL       = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
     const val LIFECYCLE_LIVEDATA        = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
     const val LIFECYCLE_COMPILER        = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"
+    const val LIFECYCLE_RUNTIME        = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE}"
 }

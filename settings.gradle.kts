@@ -13,6 +13,9 @@ include(":data")
 include(":remote")
 include(":local")
 
+include(":core-arch")
+include(":core-ui")
+
 for (project in rootProject.children) {
     project.projectDir = file("modules/${project.name}")
 }

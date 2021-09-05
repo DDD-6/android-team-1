@@ -55,6 +55,9 @@ dependencies {
     implementation(project(Dependencies.Module.REMOTE))
     implementation(project(Dependencies.Module.LOCAL))
 
+    implementation(project(Dependencies.Module.CORE_ARCH))
+    implementation(project(Dependencies.Module.CORE_UI))
+
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL)
@@ -71,6 +74,7 @@ dependencies {
     implementation(Dependencies.NAVIGATION_FRAGMENT)
     implementation(Dependencies.NAVIGATION_UI)
 
+    implementation(Dependencies.LIFECYCLE_RUNTIME)
     implementation(Dependencies.LIFECYCLE_VIEWMODEL)
     implementation(Dependencies.LIFECYCLE_LIVEDATA)
     kapt(Dependencies.LIFECYCLE_COMPILER)

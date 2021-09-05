@@ -7,7 +7,7 @@ object Versions {
     const val CORE_KTX              = "1.3.2"
     const val APPCOMPAT             = "1.2.0"
     const val MATERIAL              = "1.2.1"
-    const val ACTIVITY_KTX          = "1.3.0"
+    const val ACTIVITY_KTX          = "1.3.1"
     const val FRAGMENT_KTX          = "1.3.6"
 
     //Compose
@@ -31,5 +31,5 @@ object Versions {
     const val COROUTINES            = "1.5.2"
 
     //Lifecycle Component
-    const val LIFECYCLE             = "2.2.0"
+    const val LIFECYCLE             = "2.4.0-alpha03"
 }
