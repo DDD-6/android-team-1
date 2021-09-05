@@ -1,3 +1,16 @@
+import org.gradle.kotlin.dsl.kotlin
+import org.gradle.plugin.use.PluginDependenciesSpec
+
+inline val PluginDependenciesSpec.`android-application` get() = id("com.android.application")
+inline val PluginDependenciesSpec.`android-library` get() = id("com.android.library")
+
+inline val PluginDependenciesSpec.`kotlin-jvm` get() = kotlin("jvm")
+inline val PluginDependenciesSpec.`kotlin-android` get() = kotlin("android")
+inline val PluginDependenciesSpec.`kotlin-kapt` get() = kotlin("kapt")
+
+inline val PluginDependenciesSpec.`navigation-args` get() = id("androidx.navigation.safeargs.kotlin")
+inline val PluginDependenciesSpec.`hilt-android` get() = id("dagger.hilt.android.plugin")
+
 object Dependencies {
     //Module
     object Module {
@@ -5,6 +18,14 @@ object Dependencies {
         const val DATA                      = ":data"
         const val REMOTE                    = ":remote"
         const val LOCAL                     = ":local"
+    }
+
+    //Classpath
+    object Project {
+        const val GRADLE                = "com.android.tools.build:gradle:${Versions.GRADLE}"
+        const val KOTLIN                = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN}"
+        const val NAVIGATION            = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.NAVIGATION}"
+        const val HILT                  = "com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}"
     }
 
     //Android
@@ -38,20 +59,11 @@ object Dependencies {
     const val NAVIGATION_UI             = "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
 
     //Coroutines
-    const val COROUTINES                = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}"
+    const val COROUTINES_CORE           = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}"
+    const val COROUTINES_ANDROID        = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
 
     //Lifecycle Component
     const val LIFECYCLE_VIEWMODEL       = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
     const val LIFECYCLE_LIVEDATA        = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
     const val LIFECYCLE_COMPILER        = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"
-
-    //Room
-    const val ROOM                      = "androidx.room:room-runtime:${Versions.ROOM}"
-    const val ROOM_KTX                  = "androidx.room:room-ktx:${Versions.ROOM}"
-    const val ROOM_COMPILER             = "androidx.room:room-compiler:${Versions.ROOM}"
-
-    //Firebase
-//    const val FIREBASE                  = "com.google.firebase:firebase-bom:${Versions.FIREBASE}"
-//    const val FIREBASE_ANALYTICS        = "com.google.firebase:firebase-analytics-ktx"
-//    const val FIREBASE_CRASHLYTICS      = "com.google.firebase:firebase-crashlytics-ktx"
 }

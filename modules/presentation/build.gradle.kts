@@ -1,9 +1,9 @@
 plugins {
-    id(Configs.APPLICATION)
-    id(Configs.KOTLIN_ANDROID)
-    id(Configs.KOTLIN_KAPT)
-    id(Configs.NAVIGATION_ARGS)
-    id(Configs.HILT)
+    `android-application`
+    `kotlin-android`
+    `kotlin-kapt`
+    `navigation-args`
+    `hilt-android`
 }
 
 android {
@@ -82,5 +82,5 @@ dependencies {
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_COMPILER)
 
-    implementation(Dependencies.COROUTINES)
+    implementation(Dependencies.COROUTINES_ANDROID)
 }

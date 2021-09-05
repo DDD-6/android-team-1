@@ -1,8 +1,8 @@
 plugins {
-    id(Configs.LIBRARY)
-    id(Configs.KOTLIN_ANDROID)
-    id(Configs.KOTLIN_KAPT)
-    id(Configs.HILT)
+    `android-library`
+    `kotlin-android`
+    `kotlin-kapt`
+    `hilt-android`
 }
 
 android {
@@ -25,12 +25,8 @@ android {
 dependencies {
     implementation(project(Dependencies.Module.DATA))
 
-    implementation(Dependencies.ROOM)
-    implementation(Dependencies.ROOM_KTX)
-    kapt(Dependencies.ROOM_COMPILER)
-
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_COMPILER)
 
-    implementation(Dependencies.COROUTINES)
+    implementation(Dependencies.COROUTINES_CORE)
 }

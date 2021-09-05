@@ -1,8 +1,8 @@
 plugins {
-    id(Configs.KOTLIN_JVM)
+    `kotlin-jvm`
 }
 
 dependencies {
     implementation(Dependencies.INJECT)
-    implementation(Dependencies.COROUTINES)
+    implementation(Dependencies.COROUTINES_CORE)
 }

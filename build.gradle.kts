@@ -4,10 +4,10 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath(Configs.Project.GRADLE)
-        classpath(Configs.Project.KOTLIN)
-        classpath(Configs.Project.NAVIGATION)
-        classpath(Configs.Project.HILT)
+        classpath(Dependencies.Project.GRADLE)
+        classpath(Dependencies.Project.KOTLIN)
+        classpath(Dependencies.Project.NAVIGATION)
+        classpath(Dependencies.Project.HILT)
     }
 }
 
