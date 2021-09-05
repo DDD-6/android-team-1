@@ -13,7 +13,6 @@ object Versions {
     //Compose
     const val COMPOSE               = "1.0.1"
     const val COMPOSE_ACTIVITY      = "1.3.0"
-    const val COMPOSE_NAVIGATION    = "2.4.0-alpha08"
     const val COMPOSE_VIEWMODEL     = "1.0.0-alpha07"
 
     //Image Processing
