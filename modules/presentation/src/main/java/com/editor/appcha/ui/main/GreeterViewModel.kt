@@ -70,7 +70,7 @@ class GreeterViewModel(
         private val sayHelloUseCase: SayHelloUseCase
     ) : ViewModelProvider.Factory {
 
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T = GreeterViewModel(
+        override fun <T : ViewModel> create(modelClass: Class<T>): T = GreeterViewModel(
             getNameUseCase = getNameUseCase,
             sayHelloUseCase = sayHelloUseCase
         ) as T
