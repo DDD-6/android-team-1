@@ -7,6 +7,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "AppCha"
+include(":app")
 include(":ui")
 include(":domain")
 include(":data")
