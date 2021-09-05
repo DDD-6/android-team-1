@@ -1,5 +1,5 @@
 plugins {
-    `android-application`
+    `android-library`
     `kotlin-android`
     `kotlin-kapt`
     `navigation-args`
@@ -10,24 +10,14 @@ android {
     compileSdk = Configs.COMPILE_SDK
 
     defaultConfig {
-        applicationId = Configs.APPLICATION_ID
         minSdk = Configs.MIN_SDK
         targetSdk = Configs.TARGET_SDK
-        versionCode = Configs.VERSION_CODE
-        versionName = Configs.VERSION_NAME
 
         vectorDrawables {
             useSupportLibrary = true
         }
     }
 
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

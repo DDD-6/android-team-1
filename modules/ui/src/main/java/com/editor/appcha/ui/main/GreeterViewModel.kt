@@ -2,13 +2,13 @@ package com.editor.appcha.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.editor.appcha.core.arch.sample.GreeterModel
-import com.editor.appcha.core.arch.sample.GreeterUseCase
 import com.editor.appcha.core.ui.event.ViewEvent
 import com.editor.appcha.core.ui.state.ViewState
 import com.editor.appcha.core.ui.viewmodel.AbstractViewModel
 import com.editor.appcha.domain.usecase.GetNameUseCase
 import com.editor.appcha.domain.usecase.SayHelloUseCase
+import com.editor.appcha.ui.core.arch.sample.GreeterModel
+import com.editor.appcha.ui.core.arch.sample.GreeterUseCase
 import com.editor.appcha.ui.main.GreeterViewModel.Event
 import com.editor.appcha.ui.main.GreeterViewModel.State
 import kotlinx.coroutines.flow.map

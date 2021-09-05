@@ -30,8 +30,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import com.editor.appcha.core.arch.sample.GreeterModel
 import com.editor.appcha.core.ui.state.LoadState
+import com.editor.appcha.ui.core.arch.sample.GreeterModel
 
 @Composable
 fun GreeterActivityScreen(viewModel: GreeterViewModel) {

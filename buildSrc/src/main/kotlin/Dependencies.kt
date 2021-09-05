@@ -14,6 +14,7 @@ inline val PluginDependenciesSpec.`hilt-android` get() = id("dagger.hilt.android
 object Dependencies {
     //Module
     object Module {
+        const val UI                        = ":ui"
         const val DOMAIN                    = ":domain"
         const val DATA                      = ":data"
         const val REMOTE                    = ":remote"

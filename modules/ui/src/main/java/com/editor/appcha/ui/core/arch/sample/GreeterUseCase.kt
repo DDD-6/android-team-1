@@ -1,4 +1,4 @@
-package com.editor.appcha.core.arch.sample
+package com.editor.appcha.ui.core.arch.sample
 
 import com.editor.appcha.core.arch.model.DataModel
 import com.editor.appcha.core.arch.model.DomainModel
