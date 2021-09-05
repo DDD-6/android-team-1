@@ -2,8 +2,6 @@ object Versions {
     //Project
     const val GRADLE                = "7.0.1"
     const val KOTLIN                = "1.5.21"
-//    const val GOOGLE_SERVICE        = "4.3.10"
-//    const val FIREBASE_CRASHLYTICS  = "2.7.1"
 
     //Android
     const val CORE_KTX              = "1.3.2"
@@ -31,14 +29,8 @@ object Versions {
     const val NAVIGATION            = "2.3.5"
 
     //Coroutines
-    const val COROUTINES            = "1.3.9"
+    const val COROUTINES            = "1.5.2"
 
     //Lifecycle Component
     const val LIFECYCLE             = "2.2.0"
-
-    //Room
-    const val ROOM                  = "2.3.0"
-
-    //Firebase
-    const val FIREBASE              = "28.2.1"
 }
