@@ -1,7 +1,6 @@
 package com.editor.appcha.ui.main
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.clickable
@@ -34,6 +33,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import com.editor.appcha.core.ui.activity.AbstractActivity
+import com.editor.appcha.core.ui.state.LoadState
 import com.editor.appcha.data.di.provideGreeterRepository
 import com.editor.appcha.domain.repo.GreeterRepository
 import com.editor.appcha.domain.usecase.GetNameUseCase
@@ -42,7 +43,7 @@ import com.editor.appcha.local.di.provideGreeterLocalDataSource
 import com.editor.appcha.remote.di.provideGreeterRemoteDataSource
 import com.editor.appcha.ui.theme.AppChaTheme
 
-class GreeterActivity : ComponentActivity() {
+class GreeterActivity : AbstractActivity<GreeterViewModel, GreeterViewModel.Event>() {
 
     private val repository: GreeterRepository by lazy {
         provideGreeterRepository(
@@ -60,26 +61,31 @@ class GreeterActivity : ComponentActivity() {
         )
     }
 
-    private val viewModel by viewModels<GreeterViewModel> { factory }
+    override val vm by viewModels<GreeterViewModel> { factory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
             AppChaTheme {
-                GreeterScreen(viewModel)
+                GreeterScreen(vm)
             }
         }
+    }
+
+    override fun handleEvent(event: GreeterViewModel.Event) {
+        // no-op
     }
 }
 
 @Composable
 fun GreeterScreen(viewModel: GreeterViewModel) {
     val focusManager = LocalFocusManager.current
-    val loading: Boolean by viewModel.loading.collectAsState()
+    val loadState: LoadState by viewModel.loadState.collectAsState()
+    val state: GreeterViewModel.State by viewModel.state.collectAsState()
 
     Box(modifier = Modifier.fillMaxSize()) {
-        if (loading) {
+        if (loadState == LoadState.LOADING) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
 
@@ -89,9 +95,9 @@ fun GreeterScreen(viewModel: GreeterViewModel) {
                 focusManager.clearFocus()
             }
             LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(viewModel.items.value) { message ->
+                items(state.items) { greeter ->
                     Text(
-                        text = message,
+                        text = greeter.message,
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(4.dp)
@@ -109,11 +115,11 @@ fun NameInput(
     viewModel: GreeterViewModel,
     onSend: () -> Unit
 ) {
-    val name = viewModel.input.value
+    val state: GreeterViewModel.State by viewModel.state.collectAsState()
 
     Row(verticalAlignment = Alignment.CenterVertically) {
         TextField(
-            value = name,
+            value = state.input,
             onValueChange = { viewModel.onInputChanged(it) },
             colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.Transparent),
             maxLines = 1,
