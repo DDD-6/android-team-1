@@ -2,6 +2,7 @@ package com.editor.appcha.core.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.editor.appcha.core.arch.Result
 import com.editor.appcha.core.ui.event.EventFlow
 import com.editor.appcha.core.ui.event.MutableEventFlow
 import com.editor.appcha.core.ui.event.ViewEvent
@@ -12,9 +13,11 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
@@ -55,9 +58,26 @@ abstract class AbstractViewModel<VE : ViewEvent, VS : ViewState>(
             context = context + exceptionHandler,
             start = start
         ) {
-            _loadState.value = LoadState.LOADING
+            _loadState.update { LoadState.LOADING }
             block()
-            _loadState.value = LoadState.NOT_LOADING
+            _loadState.update { LoadState.NOT_LOADING }
+        }
+    }
+
+    protected suspend fun <T> Flow<Result<T>>.collectResult(
+        onFailure: (Throwable) -> Unit = ::onError,
+        onSuccess: (T) -> Unit,
+    ) = collect { result ->
+        when (result) {
+            is Result.Loading -> _loadState.update { LoadState.LOADING }
+            is Result.Success -> {
+                _loadState.update { LoadState.NOT_LOADING }
+                onSuccess(result.value)
+            }
+            is Result.Failure -> {
+                _loadState.update { LoadState.ERROR }
+                onFailure(result.throwable)
+            }
         }
     }
 
