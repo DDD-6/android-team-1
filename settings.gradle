@@ -13,8 +13,10 @@ include ':domain'
 include ':data'
 include ':remote'
 include ':local'
+include ':core-arch'
 
 for (project in rootProject.children) {
     def name = project.name
     project.projectDir = file("modules/${name}")
 }
+
