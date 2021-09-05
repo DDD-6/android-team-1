@@ -1,4 +1,4 @@
-package com.editor.appcha.core.ui
+package com.editor.appcha.core.ui.event
 
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
