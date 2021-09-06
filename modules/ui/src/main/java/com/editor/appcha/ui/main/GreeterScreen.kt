@@ -30,7 +30,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import com.editor.appcha.core.ui.state.LoadState
 import com.editor.appcha.ui.core.arch.sample.GreeterModel
 
 @Composable
@@ -38,10 +37,9 @@ fun GreeterActivityScreen(viewModel: GreeterViewModel) {
     val focusManager = LocalFocusManager.current
 
     val state by viewModel.state.collectAsState()
-    val loadState by viewModel.loadState.collectAsState()
 
     GreeterScreen(
-        loading = loadState == LoadState.LOADING,
+        loading = state.loading,
         input = state.input,
         items = state.items,
         onTextChange = { viewModel.onInputChanged(it) },

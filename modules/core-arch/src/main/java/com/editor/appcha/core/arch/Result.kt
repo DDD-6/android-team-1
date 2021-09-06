@@ -8,27 +8,19 @@ sealed class Result<out T> {
         val throwable: Throwable
     ) : Result<Nothing>()
 
-    object Loading : Result<Nothing>() {
-
-        override fun toString(): String = "Loading"
-    }
-
     fun getOrNull(): T? = when (this) {
         is Success -> value
-        is Failure,
-        Loading -> null
+        is Failure -> null
     }
 
     fun getOrThrow(): T = when (this) {
         is Success -> value
         is Failure -> throw throwable
-        Loading -> throw IllegalStateException("Loading could not have any value.")
     }
 
     fun getOrDefault(default: @UnsafeVariance T): T = when (this) {
         is Success -> value
         is Failure -> default
-        Loading -> default
     }
 
     inline fun onSuccess(action: (value: T) -> Unit): Result<T> {
@@ -61,7 +53,6 @@ sealed class Result<out T> {
         when (this) {
             is Success -> success(transform(value))
             is Failure -> this
-            Loading -> Loading
         }
 
 
@@ -69,14 +60,12 @@ sealed class Result<out T> {
         when (this) {
             is Success -> buildResultCatching { transform(value) }
             is Failure -> this
-            Loading -> Loading
         }
 
     inline fun <R> flatMap(transform: (value: T) -> Result<R>): Result<R> =
         when (this) {
             is Success -> transform(value)
             is Failure -> this
-            Loading -> Loading
         }
 
     inline fun <R> flatMapCatching(transform: (value: T) -> Result<R>): Result<R> =
@@ -84,7 +73,6 @@ sealed class Result<out T> {
             when (this) {
                 is Success -> transform(value)
                 is Failure -> this
-                Loading -> Loading
             }
         } catch (e: Throwable) {
             failure(e)
@@ -95,7 +83,6 @@ sealed class Result<out T> {
     ): Result<T> = when (this) {
         is Success -> this
         is Failure -> transform(throwable)
-        Loading -> Loading
     }
 
     inline fun recoverCatching(
@@ -104,7 +91,6 @@ sealed class Result<out T> {
         when (this) {
             is Success -> this
             is Failure -> transform(throwable)
-            Loading -> Loading
         }
     } catch (e: Throwable) {
         failure(e)

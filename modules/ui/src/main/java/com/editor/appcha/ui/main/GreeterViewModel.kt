@@ -11,7 +11,6 @@ import com.editor.appcha.ui.core.arch.sample.GreeterModel
 import com.editor.appcha.ui.core.arch.sample.GreeterUseCase
 import com.editor.appcha.ui.main.GreeterViewModel.Event
 import com.editor.appcha.ui.main.GreeterViewModel.State
-import kotlinx.coroutines.flow.map
 
 class GreeterViewModel(
     private val getNameUseCase: GetNameUseCase,
@@ -22,7 +21,8 @@ class GreeterViewModel(
 
     data class State(
         val input: String = "",
-        val items: List<GreeterModel> = emptyList()
+        val items: List<GreeterModel> = emptyList(),
+        val loading: Boolean = false
     ) : ViewState
 
     private val greeterUseCase = GreeterUseCase()
@@ -32,24 +32,22 @@ class GreeterViewModel(
     }
 
     fun fetchName() {
-        launch {
-            updateState { it.copy(input = getNameUseCase()) }
-        }
+        updateState { it.copy(input = getNameUseCase()) }
     }
 
     fun sayHello() {
         launch {
+            updateState { it.copy(loading = true) }
             val name = state.value.input
-            greeterUseCase(name)
-                .map { result -> result.map { GreeterModel(it) } }
-                .collectResult { value ->
-                    updateState {
-                        it.copy(
-                            input = "",
-                            items = it.items + listOf(GreeterModel(value.message))
-                        )
-                    }
-                }
+
+            val greeter = greeterUseCase(name).getOrThrow()
+            updateState { state ->
+                state.copy(
+                    input = "",
+                    items = state.items + GreeterModel(greeter.message),
+                    loading = false
+                )
+            }
         }
     }
 
