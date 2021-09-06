@@ -7,7 +7,8 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "AppCha"
-include(":presentation")
+include(":app")
+include(":ui")
 include(":domain")
 include(":data")
 include(":remote")
