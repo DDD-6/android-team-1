@@ -17,6 +17,8 @@ include(":local")
 include(":core-arch")
 include(":core-ui")
 
+include(":navigation")
+
 for (project in rootProject.children) {
     project.projectDir = file("modules/${project.name}")
 }
