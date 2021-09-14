@@ -48,6 +48,8 @@ dependencies {
     implementation(project(Dependencies.Module.CORE_ARCH))
     implementation(project(Dependencies.Module.CORE_UI))
 
+    implementation(project(Dependencies.Module.NAVIGATION))
+
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL)
