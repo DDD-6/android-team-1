@@ -22,6 +22,8 @@ object Dependencies {
 
         const val CORE_ARCH                 = ":core-arch"
         const val CORE_UI                   = ":core-ui"
+
+        const val NAVIGATION                = ":navigation"
     }
 
     //Classpath
