@@ -9,8 +9,9 @@ import com.editor.appcha.core.arch.model.data
 import com.editor.appcha.core.arch.model.remote
 import com.editor.appcha.core.arch.usecase.UseCase
 import kotlinx.coroutines.delay
+import javax.inject.Inject
 
-class GreeterUseCase : UseCase<String, Greeter>() {
+class GreeterUseCase @Inject constructor() : UseCase<String, Greeter>() {
 
     override suspend fun execute(param: String): Result<Greeter> {
         delay(500L)
