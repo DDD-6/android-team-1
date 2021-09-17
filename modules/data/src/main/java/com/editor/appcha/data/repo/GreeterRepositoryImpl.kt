@@ -4,8 +4,9 @@ import com.editor.appcha.data.source.GreeterLocalDataSource
 import com.editor.appcha.data.source.GreeterRemoteDataSource
 import com.editor.appcha.domain.model.Greeter
 import com.editor.appcha.domain.repo.GreeterRepository
+import javax.inject.Inject
 
-internal class GreeterRepositoryImpl(
+class GreeterRepositoryImpl @Inject constructor(
     private val local: GreeterLocalDataSource,
     private val remote: GreeterRemoteDataSource
 ) : GreeterRepository {
