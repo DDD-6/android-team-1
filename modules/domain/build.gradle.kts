@@ -3,6 +3,6 @@ plugins {
 }
 
 dependencies {
-    implementation(Dependencies.INJECT)
+    implementation(Dependencies.HILT_CORE)
     implementation(Dependencies.COROUTINES_CORE)
 }

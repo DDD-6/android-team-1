@@ -5,7 +5,7 @@ import com.editor.appcha.data.source.GreeterRemoteDataSource
 import com.editor.appcha.remote.model.GreeterRemote
 import javax.inject.Inject
 
-class GreeterRemoteDataSourceImpl @Inject constructor(
+internal class GreeterRemoteDataSourceImpl @Inject constructor(
     // TODO: grpc
 ) : GreeterRemoteDataSource {
 

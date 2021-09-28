@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 private var nameCache: String? = null
 
-class GreeterLocalDataSourceImpl @Inject constructor() : GreeterLocalDataSource {
+internal class GreeterLocalDataSourceImpl @Inject constructor() : GreeterLocalDataSource {
 
     override fun getName(): String = nameCache ?: ""
 

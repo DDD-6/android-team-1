@@ -5,7 +5,7 @@ plugins {
 dependencies {
     implementation(project(Dependencies.Module.DATA))
 
-    implementation(Dependencies.INJECT)
+    implementation(Dependencies.HILT_CORE)
 
     // TODO: GRPC
 }

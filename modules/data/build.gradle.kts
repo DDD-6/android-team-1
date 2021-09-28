@@ -5,6 +5,7 @@ plugins {
 dependencies {
     implementation(project(Dependencies.Module.DOMAIN))
 
-    implementation(Dependencies.INJECT)
+    implementation(Dependencies.HILT_CORE)
+
     implementation(Dependencies.COROUTINES_CORE)
 }

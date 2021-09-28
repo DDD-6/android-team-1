@@ -6,7 +6,7 @@ import com.editor.appcha.domain.model.Greeter
 import com.editor.appcha.domain.repo.GreeterRepository
 import javax.inject.Inject
 
-class GreeterRepositoryImpl @Inject constructor(
+internal class GreeterRepositoryImpl @Inject constructor(
     private val local: GreeterLocalDataSource,
     private val remote: GreeterRemoteDataSource
 ) : GreeterRepository {

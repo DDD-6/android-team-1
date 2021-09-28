@@ -55,9 +55,8 @@ object Dependencies {
 
     //Dependency Injection
     const val HILT                      = "com.google.dagger:hilt-android:${Versions.HILT}"
+    const val HILT_CORE                 = "com.google.dagger:hilt-core:${Versions.HILT}"
     const val HILT_COMPILER             = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
-    //Inject
-    const val INJECT                    = "javax.inject:javax.inject:${Versions.INJECT}"
 
     //Navigation Component
     const val NAVIGATION_FRAGMENT       = "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
