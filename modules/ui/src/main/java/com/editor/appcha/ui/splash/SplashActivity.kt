@@ -1,13 +1,20 @@
 package com.editor.appcha.ui.splash
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.viewModels
 import androidx.compose.material.Button
 import androidx.compose.material.Text
+import com.editor.appcha.core.ui.activity.AbstractActivity
 import com.editor.appcha.ui.main.MainNavigatorImpl
+import dagger.hilt.android.AndroidEntryPoint
 
-class SplashActivity : AppCompatActivity() {
+@SuppressLint("CustomSplashScreen")
+@AndroidEntryPoint
+class SplashActivity : AbstractActivity<SplashViewModel, SplashViewModel.Event>() {
+
+    override val vm by viewModels<SplashViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,5 +28,9 @@ class SplashActivity : AppCompatActivity() {
                 Text("Main")
             }
         }
+    }
+
+    override fun handleEvent(event: SplashViewModel.Event) {
+        //TODO("Not yet implemented")
     }
 }

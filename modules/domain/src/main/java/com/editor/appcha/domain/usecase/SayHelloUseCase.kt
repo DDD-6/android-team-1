@@ -2,8 +2,9 @@ package com.editor.appcha.domain.usecase
 
 import com.editor.appcha.domain.model.Greeter
 import com.editor.appcha.domain.repo.GreeterRepository
+import javax.inject.Inject
 
-class SayHelloUseCase constructor(
+class SayHelloUseCase @Inject constructor(
     private val repo: GreeterRepository
 ) {
 

@@ -32,6 +32,10 @@ android {
     }
 }
 
+hilt {
+    enableAggregatingTask = true
+}
+
 dependencies {
     implementation(project(Dependencies.Module.UI))
     implementation(project(Dependencies.Module.DOMAIN))

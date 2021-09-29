@@ -1,8 +1,9 @@
 package com.editor.appcha.domain.usecase
 
 import com.editor.appcha.domain.repo.GreeterRepository
+import javax.inject.Inject
 
-class GetNameUseCase(
+class GetNameUseCase @Inject constructor(
     private val repo: GreeterRepository
 ) {
 
