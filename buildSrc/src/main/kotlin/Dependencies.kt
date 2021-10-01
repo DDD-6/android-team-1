@@ -15,6 +15,7 @@ object Dependencies {
     //Module
     object Module {
         const val UI                        = ":ui"
+        const val UI_COMPOSE                = ":ui-compose"
         const val DOMAIN                    = ":domain"
         const val DATA                      = ":data"
         const val REMOTE                    = ":remote"

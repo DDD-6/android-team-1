@@ -38,6 +38,7 @@ hilt {
 
 dependencies {
     implementation(project(Dependencies.Module.UI))
+    implementation(project(Dependencies.Module.UI_COMPOSE))
     implementation(project(Dependencies.Module.DOMAIN))
     implementation(project(Dependencies.Module.DATA))
     implementation(project(Dependencies.Module.REMOTE))
