@@ -13,7 +13,7 @@ internal class GreeterRepositoryImpl @Inject constructor(
 
     override fun getName(): String = local.getName()
 
-    override fun sayHello(name: String): Greeter {
+    override suspend fun sayHello(name: String): Greeter {
         val message = remote.sayHello(name).message
         return Greeter(message = message)
     }

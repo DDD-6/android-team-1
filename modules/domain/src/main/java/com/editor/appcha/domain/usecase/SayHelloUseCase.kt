@@ -8,5 +8,5 @@ class SayHelloUseCase @Inject constructor(
     private val repo: GreeterRepository
 ) {
 
-    operator fun invoke(name: String): Greeter = repo.sayHello(name)
+    suspend operator fun invoke(name: String): Greeter = repo.sayHello(name)
 }

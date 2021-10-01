@@ -4,5 +4,5 @@ import com.editor.appcha.data.model.GreeterData
 
 interface GreeterRemoteDataSource {
 
-    fun sayHello(name: String): GreeterData
+    suspend fun sayHello(name: String): GreeterData
 }

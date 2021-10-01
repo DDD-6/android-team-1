@@ -6,6 +6,6 @@ interface GreeterRepository {
 
     fun getName(): String
 
-    fun sayHello(name: String): Greeter
+    suspend fun sayHello(name: String): Greeter
 }
 
