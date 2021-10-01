@@ -61,7 +61,7 @@ dependencies {
     implementation(Dependencies.COMPOSE_FOUNDATION)
     implementation(Dependencies.COMPOSE_MATERIAL)
     implementation(Dependencies.COMPOSE_ACTIVITY)
-    implementation(Dependencies.COMPOSE_VIEWMODEL)
+    implementation(Dependencies.COMPOSE_VIEW_MODEL)
 
     implementation(Dependencies.NAVIGATION_FRAGMENT)
     implementation(Dependencies.NAVIGATION_UI)

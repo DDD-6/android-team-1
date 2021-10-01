@@ -47,7 +47,9 @@ object Dependencies {
     const val COMPOSE_FOUNDATION        = "androidx.compose.foundation:foundation:${Versions.COMPOSE}"
     const val COMPOSE_MATERIAL          = "androidx.compose.material:material:${Versions.COMPOSE}"
     const val COMPOSE_ACTIVITY          = "androidx.activity:activity-compose:${Versions.COMPOSE_ACTIVITY}"
-    const val COMPOSE_VIEWMODEL         = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.COMPOSE_VIEWMODEL}"
+    const val COMPOSE_VIEW_MODEL         = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.COMPOSE_VIEWMODEL}"
+    const val COMPOSE_NAVIGATION        = "androidx.navigation:navigation-compose:${Versions.NAVIGATION}"
+    const val COMPOSE_CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout-compose:${Versions.COMPOSE_CONSTRAINT_LAYOUT}"
 
     //Glide
     const val GLIDE                     = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
