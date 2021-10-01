@@ -54,6 +54,8 @@ dependencies {
     implementation(Dependencies.COMPOSE_VIEW_MODEL)
     implementation(Dependencies.COMPOSE_NAVIGATION)
 
+    implementation(Dependencies.LIFECYCLE_RUNTIME)
+
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_COMPILER)
 

@@ -2,7 +2,6 @@ plugins {
     `android-library`
     `kotlin-android`
     `kotlin-kapt`
-    `navigation-args`
     `hilt-android`
 }
 
@@ -27,10 +26,6 @@ android {
     }
     buildFeatures {
         dataBinding = true
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.COMPOSE
     }
     packagingOptions {
         resources {
@@ -41,13 +36,8 @@ android {
 
 dependencies {
     implementation(project(Dependencies.Module.DOMAIN))
-    implementation(project(Dependencies.Module.DATA))
-    implementation(project(Dependencies.Module.REMOTE))
-    implementation(project(Dependencies.Module.LOCAL))
-
     implementation(project(Dependencies.Module.CORE_ARCH))
     implementation(project(Dependencies.Module.CORE_UI))
-
     implementation(project(Dependencies.Module.NAVIGATION))
 
     implementation(Dependencies.CORE_KTX)
@@ -56,23 +46,8 @@ dependencies {
     implementation(Dependencies.ACTIVITY_KTX)
     implementation(Dependencies.FRAGMENT_KTX)
 
-    implementation(Dependencies.COMPOSE_UI)
-    implementation(Dependencies.COMPOSE_TOOLING)
-    implementation(Dependencies.COMPOSE_FOUNDATION)
-    implementation(Dependencies.COMPOSE_MATERIAL)
-    implementation(Dependencies.COMPOSE_ACTIVITY)
-    implementation(Dependencies.COMPOSE_VIEW_MODEL)
-
-    implementation(Dependencies.NAVIGATION_FRAGMENT)
-    implementation(Dependencies.NAVIGATION_UI)
-
+    implementation(Dependencies.LIFECYCLE_VIEW_MODEL)
     implementation(Dependencies.LIFECYCLE_RUNTIME)
-    implementation(Dependencies.LIFECYCLE_VIEWMODEL)
-    implementation(Dependencies.LIFECYCLE_LIVEDATA)
-    kapt(Dependencies.LIFECYCLE_COMPILER)
-
-    implementation(Dependencies.GLIDE)
-    kapt(Dependencies.GLIDE_COMPILER)
 
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_COMPILER)
