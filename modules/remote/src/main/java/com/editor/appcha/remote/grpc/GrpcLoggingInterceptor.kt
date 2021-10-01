@@ -1,7 +1,7 @@
 package com.editor.appcha.remote.grpc
 
-import com.editor.appcha.remote.grpc.GrpcLogger.Level.ERROR
-import com.editor.appcha.remote.grpc.GrpcLogger.Level.INFO
+import com.editor.appcha.remote.grpc.GrpcLoggingInterceptor.Logger.Level.ERROR
+import com.editor.appcha.remote.grpc.GrpcLoggingInterceptor.Logger.Level.INFO
 import io.grpc.CallOptions
 import io.grpc.Channel
 import io.grpc.ClientCall
@@ -15,9 +15,18 @@ import java.lang.System.currentTimeMillis
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class LoggingInterceptor(
-    private val logger: GrpcLogger
+class GrpcLoggingInterceptor(
+    private val logger: Logger
 ) : ClientInterceptor {
+
+    fun interface Logger {
+        fun log(message: String, level: Level)
+
+        enum class Level {
+            INFO,
+            ERROR
+        }
+    }
 
     override fun <ReqT : Any?, RespT : Any?> interceptCall(
         method: MethodDescriptor<ReqT, RespT>,
@@ -26,17 +35,16 @@ class LoggingInterceptor(
     ): ClientCall<ReqT, RespT> = object : SimpleForwardingClientCall<ReqT, RespT>(
         next.newCall(method, callOptions)
     ) {
-        private val REQUEST: String = method.type.name
         private val API: String = method.bareMethodName ?: method.fullMethodName
 
         override fun sendMessage(message: ReqT) {
             logger.log("DATA\n$message", INFO)
-            logger.log("--> END $REQUEST", INFO)
+            logger.log("--> END", INFO)
             super.sendMessage(message)
         }
 
         override fun start(responseListener: Listener<RespT>, headers: Metadata) {
-            logger.log("--> $REQUEST $API", INFO)
+            logger.log("--> $API", INFO)
             headers.forEach { k, v -> logger.log("$k: $v", INFO) }
             val listener = object : SimpleForwardingClientCallListener<RespT>(responseListener) {
                 override fun onMessage(message: RespT) {
@@ -53,7 +61,7 @@ class LoggingInterceptor(
                         status.cause?.let { logger.log("cause: $it", level) }
                         logger.log("description: ${status.description}", level)
                     }
-                    logger.log("<-- END $REQUEST $API", INFO)
+                    logger.log("<-- END $API", INFO)
                     super.onClose(status, trailers)
                 }
             }

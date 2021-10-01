@@ -9,7 +9,7 @@ import io.grpc.Metadata
 import io.grpc.Metadata.Key
 import io.grpc.MethodDescriptor
 
-class HeaderInterceptor(
+class GrpcHeaderInterceptor(
     private val provider: Provider
 ) : ClientInterceptor {
 
