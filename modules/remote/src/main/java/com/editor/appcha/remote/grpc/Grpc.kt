@@ -6,7 +6,7 @@ import io.grpc.ManagedChannelBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
 
-class Grpc private constructor(builder: Builder) {
+internal class Grpc private constructor(builder: Builder) {
 
     private val name: String = builder.name.value
     private val port: Int = builder.port.value

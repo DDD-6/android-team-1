@@ -1,5 +1,6 @@
 package com.editor.appcha.ui.splash
 
+import android.util.Log
 import com.editor.appcha.core.ui.event.ViewEvent
 import com.editor.appcha.core.ui.state.ViewState
 import com.editor.appcha.core.ui.viewmodel.AbstractViewModel
@@ -22,7 +23,8 @@ class SplashViewModel @Inject constructor(
 
     init {
         launch {
-            sayHelloUseCase("hi")
+            val result = sayHelloUseCase("hi")
+            Log.e("Melon", "result: $result")
         }
     }
 }

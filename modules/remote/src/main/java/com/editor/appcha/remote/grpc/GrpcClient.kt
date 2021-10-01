@@ -1,9 +1,11 @@
 package com.editor.appcha.remote.grpc
 
+import com.editor.appcha.core.arch.Result
+import com.editor.appcha.core.arch.buildResultCatching
 import io.grpc.ManagedChannel
 import io.grpc.kotlin.AbstractCoroutineStub
 
-abstract class GrpcClient<T : AbstractCoroutineStub<T>>(
+internal abstract class GrpcClient<T : AbstractCoroutineStub<T>>(
     protected val grpc: Grpc
 ) {
 
@@ -13,10 +15,12 @@ abstract class GrpcClient<T : AbstractCoroutineStub<T>>(
         block: suspend (stub: T) -> R
     ): Result<R> = grpc.call { channel ->
         val stub = stub(channel)
-        runCatching { block(stub) }
+        buildResultCatching { block(stub) }
     }.recoverCatching { throwable ->
-        throw throwable.asStatus()
-            ?.asGrpcException()
-            ?: throwable
+        Result.failure(
+            throwable.asStatus()
+                ?.asGrpcException()
+                ?: throwable
+        )
     }
 }

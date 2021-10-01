@@ -1,5 +1,7 @@
 package com.editor.appcha.remote.source
 
+import com.editor.appcha.core.arch.Result
+import com.editor.appcha.core.arch.mapper.toData
 import com.editor.appcha.data.model.GreeterData
 import com.editor.appcha.data.source.GreeterRemoteDataSource
 import com.editor.appcha.grpc.GreeterServiceGrpcKt.GreeterServiceCoroutineStub
@@ -12,14 +14,16 @@ import javax.inject.Inject
 
 internal class GreeterRemoteDataSourceImpl @Inject constructor(
     grpc: Grpc
-) : GrpcClient<GreeterServiceCoroutineStub>(grpc), GreeterRemoteDataSource {
+) : GrpcClient<GreeterServiceCoroutineStub>(grpc),
+    GreeterRemoteDataSource {
 
     override fun stub(channel: ManagedChannel): GreeterServiceCoroutineStub =
         GreeterServiceCoroutineStub(channel)
 
-    override suspend fun sayHello(name: String): GreeterData = runGrpc { stub ->
-        val response = GreeterRemote("Hello $name")
-        stub.sayHello(GreeterServiceOuterClass.HelloRequest.getDefaultInstance())
-        GreeterData(response.message)
-    }.getOrDefault(GreeterData(""))
+    override suspend fun sayHello(name: String): Result<GreeterData> = runGrpc { stub ->
+        val message = stub.sayHello(GreeterServiceOuterClass.HelloRequest.getDefaultInstance())
+            .hello
+            .message
+        GreeterRemote(message)
+    }.toData()
 }

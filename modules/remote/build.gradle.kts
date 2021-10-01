@@ -13,6 +13,7 @@ plugins {
 
 dependencies {
     implementation(project(Dependencies.Module.DATA))
+    implementation(project(Dependencies.Module.CORE_ARCH))
 
     implementation(Dependencies.COROUTINES_CORE)
 

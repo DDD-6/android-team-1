@@ -1,16 +1,12 @@
-package com.editor.appcha.remote.grpc
+package com.editor.appcha.domain.exception
 
-import com.editor.appcha.core.arch.model.RemoteModel
-import com.editor.appcha.data.exception.GrpcExceptionData
+import com.editor.appcha.core.arch.model.DomainModel
 
-/**
- * @see [io.grpc.Status.Code]
- */
-internal sealed class GrpcException(
+sealed class GrpcException(
     override val message: String?,
     override val cause: Throwable?
 ) : Throwable(message, cause),
-    RemoteModel<GrpcExceptionData> {
+    DomainModel {
 
     data class Cancelled(
         override val message: String?,
@@ -91,23 +87,4 @@ internal sealed class GrpcException(
         override val message: String?,
         override val cause: Throwable?
     ) : GrpcException(message, cause)
-
-    override fun toData(): GrpcExceptionData = when (this) {
-        is Aborted -> GrpcExceptionData.Aborted(message, cause)
-        is AlreadyExists -> GrpcExceptionData.AlreadyExists(message, cause)
-        is Cancelled -> GrpcExceptionData.Cancelled(message, cause)
-        is DataLoss -> GrpcExceptionData.DataLoss(message, cause)
-        is DeadlineExceeded -> GrpcExceptionData.DeadlineExceeded(message, cause)
-        is FailedPreCondition -> GrpcExceptionData.FailedPreCondition(message, cause)
-        is Internal -> GrpcExceptionData.Internal(message, cause)
-        is InvalidArgument -> GrpcExceptionData.InvalidArgument(message, cause)
-        is NotFound -> GrpcExceptionData.NotFound(message, cause)
-        is OutOfRange -> GrpcExceptionData.OutOfRange(message, cause)
-        is PermissionDenied -> GrpcExceptionData.PermissionDenied(message, cause)
-        is ResourceExhausted -> GrpcExceptionData.ResourceExhausted(message, cause)
-        is UnImplemented -> GrpcExceptionData.UnImplemented(message, cause)
-        is Unauthenticated -> GrpcExceptionData.Unauthenticated(message, cause)
-        is Unavailable -> GrpcExceptionData.Unavailable(message, cause)
-        is Unknown -> GrpcExceptionData.Unknown(message, cause)
-    }
 }
