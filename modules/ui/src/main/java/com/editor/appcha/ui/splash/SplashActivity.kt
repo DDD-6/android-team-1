@@ -6,13 +6,13 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.material.Button
 import androidx.compose.material.Text
-import com.editor.appcha.core.ui.activity.AbstractActivity
+import com.editor.appcha.ui.base.BaseActivity
 import com.editor.appcha.ui.main.MainNavigatorImpl
 import dagger.hilt.android.AndroidEntryPoint
 
 @SuppressLint("CustomSplashScreen")
 @AndroidEntryPoint
-class SplashActivity : AbstractActivity<SplashViewModel, SplashViewModel.Event>() {
+class SplashActivity : BaseActivity<SplashViewModel, SplashViewModel.Event>() {
 
     override val vm by viewModels<SplashViewModel>()
 

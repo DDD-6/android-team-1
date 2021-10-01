@@ -3,12 +3,12 @@ package com.editor.appcha.ui.main
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import com.editor.appcha.core.ui.activity.AbstractActivity
+import com.editor.appcha.ui.base.BaseActivity
 import com.editor.appcha.ui.theme.AppChaTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class GreeterActivity : AbstractActivity<GreeterViewModel, GreeterViewModel.Event>() {
+class GreeterActivity : BaseActivity<GreeterViewModel, GreeterViewModel.Event>() {
 
     override val vm by viewModels<GreeterViewModel>()
 

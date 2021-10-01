@@ -2,7 +2,7 @@ package com.editor.appcha.ui.main
 
 import com.editor.appcha.core.ui.event.ViewEvent
 import com.editor.appcha.core.ui.state.ViewState
-import com.editor.appcha.core.ui.viewmodel.AbstractViewModel
+import com.editor.appcha.core.ui.viewmodel.BaseViewModel
 import com.editor.appcha.domain.usecase.GetNameUseCase
 import com.editor.appcha.domain.usecase.SayHelloUseCase
 import com.editor.appcha.ui.core.arch.sample.GreeterModel
@@ -17,7 +17,7 @@ class GreeterViewModel @Inject constructor(
     private val getNameUseCase: GetNameUseCase,
     private val sayHelloUseCase: SayHelloUseCase,
     private val greeterUseCase: GreeterUseCase
-) : AbstractViewModel<Event, State>(State()) {
+) : BaseViewModel<Event, State>(State()) {
 
     sealed class Event : ViewEvent
 
