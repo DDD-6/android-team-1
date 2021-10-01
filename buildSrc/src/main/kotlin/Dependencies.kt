@@ -44,6 +44,7 @@ object Dependencies {
     const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
     const val ACTIVITY_KTX = "androidx.activity:activity-ktx:${Versions.ACTIVITY_KTX}"
     const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX}"
+    const val PREFERENCE = "androidx.preference:preference-ktx:${Versions.PREFERENCE}"
 
     //Jetpack Compose
     const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.COMPOSE}"
@@ -84,6 +85,7 @@ object Dependencies {
     // GRPC
     const val GRPC_OKHTTP = "io.grpc:grpc-okhttp:${Versions.GRPC}"
     const val GRPC_STUB = "io.grpc:grpc-stub:${Versions.GRPC}"
+    const val GRPC_API = "io.grpc:grpc-api:${Versions.GRPC}"
     const val GRPC_PROTOBUF_LITE = "io.grpc:grpc-protobuf-lite:${Versions.GRPC}"
     const val GRPC_KOTLIN_STUB = "io.grpc:grpc-kotlin-stub:${Versions.GRPC_KOTLIN}"
 
