@@ -1,10 +1,12 @@
 package com.editor.appcha.di
 
-import com.editor.appcha.remote.grpc.GrpcName
-import com.editor.appcha.remote.grpc.GrpcPort
+import android.content.Context
+import android.content.SharedPreferences
+import androidx.preference.PreferenceManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 
 @Module
@@ -12,8 +14,6 @@ import dagger.hilt.components.SingletonComponent
 internal object AppModule {
 
     @Provides
-    fun provideGrpcName(): GrpcName = GrpcName("localhost")
-
-    @Provides
-    fun provideGrpcPort(): GrpcPort = GrpcPort(8888)
+    fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences =
+        PreferenceManager.getDefaultSharedPreferences(context)
 }

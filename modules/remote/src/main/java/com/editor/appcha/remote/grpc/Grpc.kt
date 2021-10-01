@@ -10,10 +10,10 @@ class Grpc private constructor(builder: Builder) {
 
     private val name: String = builder.name.value
     private val port: Int = builder.port.value
-    private val interceptors: ClientInterceptors = builder.interceptors
+    private val interceptors: GrpcClientInterceptors = builder.interceptors
 
     private fun create(): ManagedChannel = ManagedChannelBuilder.forAddress(name, port)
-        .intercept(interceptors.interceptors)
+        .intercept(interceptors)
         .executor(Dispatchers.IO.asExecutor())
         .build()
 
@@ -31,13 +31,13 @@ class Grpc private constructor(builder: Builder) {
         val port: GrpcPort
     ) {
 
-        var interceptors: ClientInterceptors = ClientInterceptors(emptyList())
+        var interceptors: GrpcClientInterceptors = GrpcClientInterceptors(emptyList())
 
         fun intercept(vararg interceptors: ClientInterceptor): Builder = intercept(
-            ClientInterceptors(interceptors.toList())
+            GrpcClientInterceptors(interceptors.toList())
         )
 
-        fun intercept(interceptors: ClientInterceptors): Builder = apply {
+        fun intercept(interceptors: GrpcClientInterceptors): Builder = apply {
             this.interceptors = interceptors
         }
 

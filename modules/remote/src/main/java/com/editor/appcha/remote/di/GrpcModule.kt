@@ -1,6 +1,7 @@
 package com.editor.appcha.remote.di
 
 import com.editor.appcha.remote.grpc.Grpc
+import com.editor.appcha.remote.grpc.GrpcClientInterceptors
 import com.editor.appcha.remote.grpc.GrpcName
 import com.editor.appcha.remote.grpc.GrpcPort
 import dagger.Module
@@ -17,6 +18,9 @@ internal object GrpcModule {
     @Singleton
     fun provideGrpc(
         name: GrpcName,
-        port: GrpcPort
-    ): Grpc = Grpc.Builder(name, port).build()
+        port: GrpcPort,
+        interceptors: GrpcClientInterceptors
+    ): Grpc = Grpc.Builder(name, port)
+        .intercept(interceptors)
+        .build()
 }
