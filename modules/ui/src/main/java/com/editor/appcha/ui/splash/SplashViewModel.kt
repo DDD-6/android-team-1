@@ -19,4 +19,10 @@ class SplashViewModel @Inject constructor(
     data class State(
         val loading: Boolean = false
     ) : ViewState
+
+    init {
+        launch {
+            sayHelloUseCase("hi")
+        }
+    }
 }
