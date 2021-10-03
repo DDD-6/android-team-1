@@ -1,4 +1,4 @@
-package com.editor.appcha.core.ui.fragment
+package com.editor.appcha.ui.base
 
 import android.os.Bundle
 import android.view.View
@@ -7,11 +7,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.editor.appcha.core.ui.event.ViewEvent
-import com.editor.appcha.core.ui.viewmodel.AbstractViewModel
+import com.editor.appcha.core.ui.viewmodel.BaseViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-abstract class AbstractFragment<VM : AbstractViewModel<VE, *>, VE : ViewEvent>() : Fragment() {
+abstract class BaseFragment<VM : BaseViewModel<VE, *>, VE : ViewEvent>() : Fragment() {
 
     protected abstract val vm: VM
 

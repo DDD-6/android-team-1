@@ -16,6 +16,7 @@ object Dependencies {
     //Module
     object Module {
         const val UI = ":ui"
+        const val UI_COMPOSE = ":ui-compose"
         const val DOMAIN = ":domain"
         const val DATA = ":data"
         const val REMOTE = ":remote"
@@ -52,8 +53,12 @@ object Dependencies {
     const val COMPOSE_FOUNDATION = "androidx.compose.foundation:foundation:${Versions.COMPOSE}"
     const val COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.COMPOSE}"
     const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose:${Versions.COMPOSE_ACTIVITY}"
-    const val COMPOSE_VIEWMODEL =
-        "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.COMPOSE_VIEWMODEL}"
+    const val COMPOSE_VIEW_MODEL =
+        "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.COMPOSE_VIEW_MODEL}"
+    const val COMPOSE_NAVIGATION =
+        "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION}"
+    const val COMPOSE_CONSTRAINT_LAYOUT =
+        "androidx.constraintlayout:constraintlayout-compose:${Versions.COMPOSE_CONSTRAINT_LAYOUT}"
 
     //Glide
     const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
@@ -76,7 +81,7 @@ object Dependencies {
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
 
     //Lifecycle Component
-    const val LIFECYCLE_VIEWMODEL =
+    const val LIFECYCLE_VIEW_MODEL =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
     const val LIFECYCLE_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
     const val LIFECYCLE_COMPILER = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"

@@ -16,7 +16,7 @@
         tools:ignore="LockedOrientationActivity">
 
         <activity
-            android:name=".ui.splash.SplashActivity"
+            android:name=".ui.compose.splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
 
@@ -27,10 +27,6 @@
             </intent-filter>
 
         </activity>
-
-        <activity
-            android:name=".ui.main.GreeterActivity"
-            android:exported="true" />
 
     </application>
 </manifest>

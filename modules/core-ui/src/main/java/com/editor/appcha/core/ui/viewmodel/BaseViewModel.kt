@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
-abstract class AbstractViewModel<VE : ViewEvent, VS : ViewState>(
+abstract class BaseViewModel<VE : ViewEvent, VS : ViewState>(
     initialState: VS
 ) : ViewModel() {
 

@@ -12,9 +12,11 @@ object Versions {
     const val PREFERENCE = "1.1.1"
 
     //Compose
-    const val COMPOSE = "1.0.1"
-    const val COMPOSE_ACTIVITY = "1.3.0"
-    const val COMPOSE_VIEWMODEL = "1.0.0-alpha07"
+    const val COMPOSE               = "1.0.2"
+    const val COMPOSE_ACTIVITY      = "1.3.0"
+    const val COMPOSE_VIEW_MODEL     = "1.0.0-alpha07"
+    const val COMPOSE_CONSTRAINT_LAYOUT = "1.0.0-beta02"
+    const val COMPOSE_NAVIGATION = "2.4.0-alpha08"
 
     //Image Processing
     const val GLIDE = "4.11.0"
