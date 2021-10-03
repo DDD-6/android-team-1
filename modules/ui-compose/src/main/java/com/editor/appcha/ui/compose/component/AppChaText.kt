@@ -45,7 +45,7 @@ fun AppChaText(
     /**
      * - top = distance between top and baseline
      * - bottom = distance between bottom and baseline
-     * - top + bottom = lineHeight
+     * - lineHeight = top + bottom
      */
     val (top, bottom) = when (style) {
         MaterialTheme.typography.h1 -> VerticalDp(21.dp, 5.dp)

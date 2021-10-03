@@ -6,6 +6,9 @@ import androidx.compose.runtime.Stable
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 
+/**
+ * 텍스트에 들어가는 값인 TextUnit으로 변환하기 위한 유틸 함수
+ */
 @Composable
 fun TextUnit.Companion.dp(value: Int): TextUnit = value.dp.sp
 
