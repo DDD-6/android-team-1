@@ -21,7 +21,8 @@ fun SplashScreen() {
     Column(Modifier.verticalScroll(scrollState)) {
         AppChaText(
             text = "Body",
-            style = MaterialTheme.typography.h1
+            style = MaterialTheme.typography.h1,
+            color = AppChaTheme.colors.statusCaution
         )
         Column(
             modifier = Modifier
@@ -31,17 +32,19 @@ fun SplashScreen() {
             AppChaText(
                 text = "스포카 한스를 사용합니다.",
                 style = MaterialTheme.typography.body1.copy(fontWeight = FontWeight.Bold),
+                color = AppChaTheme.colors.gray5
             )
             AppChaText(
                 text = "스포카 한스를 사용합니다.",
                 style = MaterialTheme.typography.body1,
+                color = AppChaTheme.colors.gray3
             )
         }
     }
 }
 
 
-@Preview(backgroundColor = 0L)
+@Preview
 @Composable
 fun SplashScreenPreview() {
     AppChaTheme {
