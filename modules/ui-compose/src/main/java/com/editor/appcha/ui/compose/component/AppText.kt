@@ -2,7 +2,6 @@ package com.editor.appcha.ui.compose.component
 
 import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.material.LocalTextStyle
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,14 +15,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.dp
-import com.editor.appcha.ui.compose.util.VerticalDp
+import com.editor.appcha.ui.compose.theme.AppTextStyle
+import com.editor.appcha.ui.compose.theme.appTextStyle
 
 /**
- * @see [com.editor.appcha.ui.compose.theme.AppChaTypography]
+ * @see [com.editor.appcha.ui.compose.theme.AppTypography]
  */
 @Composable
-fun AppChaText(
+fun AppText(
     text: String,
     modifier: Modifier = Modifier,
     color: Color = Color.Unspecified,
@@ -39,27 +38,20 @@ fun AppChaText(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    style: TextStyle = LocalTextStyle.current
+    style: TextStyle = LocalTextStyle.current,
 ) {
-
-    /**
-     * - top = distance between top and baseline
-     * - bottom = distance between bottom and baseline
-     * - lineHeight = top + bottom
-     */
-    val (top, bottom) = when (style) {
-        MaterialTheme.typography.h1 -> VerticalDp(21.dp, 5.dp)
-        MaterialTheme.typography.h2 -> VerticalDp(23.dp, 9.dp)
-        MaterialTheme.typography.h3 -> VerticalDp(21.dp, 9.dp)
-        MaterialTheme.typography.body1 -> VerticalDp(18.dp, 6.dp)
-        MaterialTheme.typography.button -> VerticalDp(15.dp, 5.dp)
-        MaterialTheme.typography.caption -> VerticalDp(12.dp, 4.dp)
-        else -> VerticalDp.Default
+    val textStyle: AppTextStyle = appTextStyle(style = style)
+    val baselineModifier = if (textStyle != AppTextStyle.Unspecified) {
+        val top = textStyle.firstBaselineToTop
+        val bottom = textStyle.lastBaselineToBottom
+        Modifier.paddingFromBaseline(top = top, bottom = bottom)
+    } else {
+        Modifier
     }
 
     Text(
         text = text,
-        modifier = modifier.paddingFromBaseline(top = top, bottom = bottom),
+        modifier = modifier.then(baselineModifier),
         color = color,
         fontSize = fontSize,
         fontStyle = fontStyle,

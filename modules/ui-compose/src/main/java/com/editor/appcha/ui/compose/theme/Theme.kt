@@ -13,26 +13,26 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun AppChaTheme(content: @Composable() () -> Unit) {
-    ProvideAppChaColors(colors = AppChaColors.Default) {
+fun AppTheme(content: @Composable() () -> Unit) {
+    ProvideAppColors(colors = AppColors.Default) {
         MaterialTheme(
-            typography = AppChaTypography,
-            shapes = AppChaShapes,
+            typography = AppTypography,
+            shapes = AppShapes,
             content = content
         )
     }
 }
 
-object AppChaTheme {
+object AppTheme {
 
-    val colors: AppChaColors
+    val colors: AppColors
         @Composable
         @ReadOnlyComposable
         get() = LocalAppChaColors.current
 }
 
 @Stable
-class AppChaColors(
+class AppColors(
     gray1: Color = Gray1,
     gray2: Color = Gray2,
     gray3: Color = Gray3,
@@ -72,7 +72,7 @@ class AppChaColors(
         primaryLight: Color = this.primaryLight,
         statusError: Color = this.statusError,
         statusCaution: Color = this.statusCaution,
-    ): AppChaColors = AppChaColors(
+    ): AppColors = AppColors(
         gray1 = gray1,
         gray2 = gray2,
         gray3 = gray3,
@@ -86,13 +86,13 @@ class AppChaColors(
 
     companion object {
 
-        val Default = AppChaColors()
+        val Default = AppColors()
     }
 }
 
 @Composable
-fun ProvideAppChaColors(
-    colors: AppChaColors,
+fun ProvideAppColors(
+    colors: AppColors,
     content: @Composable () -> Unit
 ) {
     val rememberedColors = remember {
@@ -103,4 +103,4 @@ fun ProvideAppChaColors(
     CompositionLocalProvider(LocalAppChaColors provides rememberedColors, content = content)
 }
 
-private val LocalAppChaColors = staticCompositionLocalOf { AppChaColors.Default }
+private val LocalAppChaColors = staticCompositionLocalOf { AppColors.Default }
