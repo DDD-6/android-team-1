@@ -8,6 +8,7 @@ buildscript {
         classpath(Dependencies.Project.KOTLIN)
         classpath(Dependencies.Project.NAVIGATION)
         classpath(Dependencies.Project.HILT)
+        classpath(Dependencies.Project.PROTOBUF_GRADLE_PLUGIN)
     }
 }
 

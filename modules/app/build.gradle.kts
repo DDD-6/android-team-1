@@ -20,7 +20,10 @@ android {
         getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -50,4 +53,7 @@ dependencies {
     kapt(Dependencies.HILT_COMPILER)
 
     implementation(Dependencies.COROUTINES_CORE)
+
+    implementation(Dependencies.GRPC_API)
+    implementation(Dependencies.PREFERENCE)
 }

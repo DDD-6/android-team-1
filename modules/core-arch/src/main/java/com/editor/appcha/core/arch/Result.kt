@@ -23,6 +23,11 @@ sealed class Result<out T> {
         is Failure -> default
     }
 
+    fun getExceptionOrNull(): Throwable? = when (this) {
+        is Success -> null
+        is Failure -> throwable
+    }
+
     inline fun onSuccess(action: (value: T) -> Unit): Result<T> {
         if (this is Success) action(value)
         return this
