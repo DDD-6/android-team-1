@@ -24,5 +24,7 @@ dependencies {
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.LIFECYCLE_VIEW_MODEL)
     implementation(Dependencies.COROUTINES_ANDROID)
+
+    implementation(Dependencies.MATERIAL)
 }
 
