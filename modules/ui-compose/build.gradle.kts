@@ -54,6 +54,8 @@ dependencies {
     implementation(Dependencies.COMPOSE_VIEW_MODEL)
     implementation(Dependencies.COMPOSE_NAVIGATION)
 
+    implementation(Dependencies.APPCOMPANIST_SYSTEM_UI_CONTROLLER)
+
     implementation(Dependencies.LIFECYCLE_RUNTIME)
 
     implementation(Dependencies.HILT)
