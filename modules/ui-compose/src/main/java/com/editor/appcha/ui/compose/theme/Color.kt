@@ -1,28 +1,15 @@
 package com.editor.appcha.ui.compose.theme
 
-import androidx.compose.material.lightColors
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
+val Gray1 = Color(0xFFF0F0F0)
+val Gray2 = Color(0xFFCDD2D7)
+val Gray3 = Color(0xFF8C96A0)
+val Gray4 = Color(0xFF505A64)
+val Gray5 = Color(0xFF30323C)
 
-val AppChaColors = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
+val Primary = Color(0xFF6ACDC8)
+val PrimaryLight = Color(0xFF6ACDC8)
 
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
-)
-
-
-
-// TODO: 컬러 시스템 구축
+val StatusError = Color(0xFFEB4B4B)
+val StatusCaution = Color(0xFFFF8E3C)
