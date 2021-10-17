@@ -2,8 +2,9 @@ package com.editor.appcha.ui.compose.theme
 
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Typography
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -17,44 +18,47 @@ private val SpoqaHanSansNeo = FontFamily(
     Font(R.font.spoqa_han_sans_neo_bold, FontWeight.Bold)
 )
 
-val AppTypography = Typography(
-    h1 = TextStyle(
+@Immutable
+data class AppTypography(
+    val h1: TextStyle = TextStyle(
         fontFamily = SpoqaHanSansNeo,
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold,
         lineHeight = 36.sp,
     ),
-    h2 = TextStyle(
+    val h2: TextStyle = TextStyle(
         fontFamily = SpoqaHanSansNeo,
         fontSize = 20.sp,
         fontWeight = FontWeight.Bold,
         lineHeight = 32.sp
     ),
-    h3 = TextStyle(
+    val h3: TextStyle = TextStyle(
         fontFamily = SpoqaHanSansNeo,
         fontSize = 18.sp,
         fontWeight = FontWeight.Bold,
         lineHeight = 30.sp
     ),
-    body1 = TextStyle(
+    val body1: TextStyle = TextStyle(
         fontFamily = SpoqaHanSansNeo,
         fontSize = 16.sp,
         fontWeight = FontWeight.Normal,
         lineHeight = 24.sp,
     ),
-    button = TextStyle(
+    val button: TextStyle = TextStyle(
         fontFamily = SpoqaHanSansNeo,
         fontSize = 14.sp,
         fontWeight = FontWeight.Normal,
         lineHeight = 20.sp
     ),
-    caption = TextStyle(
+    val caption: TextStyle = TextStyle(
         fontFamily = SpoqaHanSansNeo,
         fontSize = 12.sp,
         fontWeight = FontWeight.Normal,
         lineHeight = 16.sp
     )
 )
+
+internal val LocalTypography = staticCompositionLocalOf { AppTypography() }
 
 enum class AppTextStyle(
     val firstBaselineToTop: TextUnit = TextUnit.Unspecified,
