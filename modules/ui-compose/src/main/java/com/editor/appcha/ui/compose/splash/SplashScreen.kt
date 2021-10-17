@@ -1,40 +1,36 @@
 package com.editor.appcha.ui.compose.splash
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import com.editor.appcha.ui.compose.R
+import com.editor.appcha.ui.compose.component.AppText
 import com.editor.appcha.ui.compose.theme.AppTheme
 
 @Composable
 fun SplashScreen() {
-
-    Row {
-        Text(
-            text = "스포카 한스를 사용합니다.\n스포카 한스를 사용합니다.",
-            style = MaterialTheme.typography.h1,
-            modifier = Modifier.background(Color.Green)
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+    ) {
+        AppText(
+            text = stringResource(R.string.app_name),
+            color = AppTheme.colors.primary,
+            style = MaterialTheme.typography.h1
         )
-
-        Surface(
-            color = Color.LightGray,
-            modifier = Modifier
-                .height(72.dp)
-                .fillMaxWidth()
-        ) {
-        }
     }
 }
 
-@Preview
+@Preview(widthDp = 300, heightDp = 400)
 @Composable
 fun SplashScreenPreview() {
     AppTheme {

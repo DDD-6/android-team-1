@@ -60,6 +60,9 @@ object Dependencies {
     const val COMPOSE_CONSTRAINT_LAYOUT =
         "androidx.constraintlayout:constraintlayout-compose:${Versions.COMPOSE_CONSTRAINT_LAYOUT}"
 
+    const val APPCOMPANIST_SYSTEM_UI_CONTROLLER =
+        "com.google.accompanist:accompanist-systemuicontroller:${Versions.APPCOMPANIST}"
+
     //Glide
     const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
     const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE}"

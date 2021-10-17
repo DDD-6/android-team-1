@@ -11,7 +11,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import com.editor.appcha.ui.compose.R
-import com.editor.appcha.ui.compose.util.dp
 
 private val SpoqaHanSansNeo = FontFamily(
     Font(R.font.spoqa_han_sans_neo_regular, FontWeight.Normal),
@@ -20,7 +19,7 @@ private val SpoqaHanSansNeo = FontFamily(
 
 val AppTypography = Typography(
     h1 = TextStyle(
-        fontFamily = FontFamily.Cursive,
+        fontFamily = SpoqaHanSansNeo,
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold,
         lineHeight = 36.sp,

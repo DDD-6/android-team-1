@@ -12,6 +12,10 @@ import kotlinx.coroutines.launch
 
 abstract class BaseActivity<VM : BaseViewModel<VE, *>, VE : ViewEvent> : ComponentActivity() {
 
+    @Suppress("unused", "PropertyName")
+    protected inline val TAG: String
+        get() = this::class.java.simpleName
+
     protected abstract val vm: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -8,3 +8,5 @@ abstract class UseCase<in P, R> {
 
     protected abstract suspend fun execute(param: P): Result<R>
 }
+
+suspend operator fun <T> UseCase<Unit, T>.invoke(): Result<T> = invoke(Unit)
