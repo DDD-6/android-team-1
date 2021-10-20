@@ -1,3 +1,5 @@
+import PropertyUtil.getKakaoApiNativeKey
+
 plugins {
     `android-application`
     `kotlin-android`
@@ -14,6 +16,8 @@ android {
         targetSdk = Configs.TARGET_SDK
         versionCode = Configs.VERSION_CODE
         versionName = Configs.VERSION_NAME
+
+        buildConfigField("String", "KAKAO_API_NATIVE_KEY", getKakaoApiNativeKey())
     }
 
     buildTypes {

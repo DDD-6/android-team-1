@@ -1,3 +1,5 @@
+import PropertyUtil.getKakaoApiNativeKey
+
 plugins {
     `android-library`
     `kotlin-android`
@@ -16,6 +18,8 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        manifestPlaceholders["kakao_api_native_key"] = getKakaoApiNativeKey()
     }
 
     compileOptions {
