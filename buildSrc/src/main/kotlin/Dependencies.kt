@@ -70,5 +70,8 @@ object Dependencies {
     const val LIFECYCLE_VIEWMODEL       = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
     const val LIFECYCLE_LIVEDATA        = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
     const val LIFECYCLE_COMPILER        = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"
-    const val LIFECYCLE_RUNTIME        = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE}"
+    const val LIFECYCLE_RUNTIME         = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE}"
+
+    //Kakao
+    const val KAKAO_USER                = "com.kakao.sdk:v2-user:${Versions.KAKAO}"
 }

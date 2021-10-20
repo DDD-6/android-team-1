@@ -49,4 +49,6 @@ dependencies {
     kapt(Dependencies.HILT_COMPILER)
 
     implementation(Dependencies.COROUTINES_CORE)
+
+    implementation(Dependencies.KAKAO_USER)
 }

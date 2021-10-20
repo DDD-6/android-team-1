@@ -78,4 +78,6 @@ dependencies {
     kapt(Dependencies.HILT_COMPILER)
 
     implementation(Dependencies.COROUTINES_ANDROID)
+
+    implementation(Dependencies.KAKAO_USER)
 }

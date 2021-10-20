@@ -32,4 +32,7 @@ object Versions {
 
     //Lifecycle Component
     const val LIFECYCLE             = "2.4.0-alpha03"
+
+    //Kakao API
+    const val KAKAO                 = "2.8.1"
 }
