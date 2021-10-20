@@ -1,13 +1,14 @@
 package com.editor.appcha.ui.splash
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.material.Button
-import androidx.compose.material.Text
 import com.editor.appcha.core.ui.activity.AbstractActivity
-import com.editor.appcha.ui.main.MainNavigatorImpl
+import com.editor.appcha.ui.login.LoginActivity
+import com.editor.appcha.ui.main.GreeterActivity
+import com.editor.appcha.ui.theme.AppChaTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @SuppressLint("CustomSplashScreen")
@@ -19,18 +20,23 @@ class SplashActivity : AbstractActivity<SplashViewModel, SplashViewModel.Event>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val navigator = MainNavigatorImpl
-
         setContent {
-            Button(
-                onClick = { navigator.launch(this) }
-            ) {
-                Text("Main")
+            AppChaTheme {
+                SplashScreen()
             }
         }
     }
 
     override fun handleEvent(event: SplashViewModel.Event) {
-        //TODO("Not yet implemented")
+        when (event) {
+            is SplashViewModel.Event.Exist -> {
+                startActivity(Intent(this, GreeterActivity::class.java))
+                finish()
+            }
+            is SplashViewModel.Event.Expired -> {
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
+        }
     }
 }
