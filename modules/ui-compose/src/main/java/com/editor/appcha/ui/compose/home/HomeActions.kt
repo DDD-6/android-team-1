@@ -12,13 +12,18 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun rememberHomeActions(
+    startTab: HomeTab,
     navController: NavHostController = rememberNavController()
 ) = remember(navController) {
-    HomeActions(navController = navController)
+    HomeActions(
+        startTab = startTab,
+        navController = navController
+    )
 }
 
 @Stable
 class HomeActions(
+    startTab: HomeTab,
     val navController: NavHostController
 ) {
 
@@ -29,7 +34,7 @@ class HomeActions(
 
     private val tabRoutes = tabs.map { it.route }
 
-    var currentTab by mutableStateOf<HomeTab>(HomeTab.Feed)
+    var currentTab by mutableStateOf<HomeTab>(startTab)
         private set
 
     val showTopBar: Boolean

@@ -38,7 +38,8 @@ private val TabHeight = 56.dp
 
 @Composable
 fun Home() {
-    val actions = rememberHomeActions()
+    val startTab = HomeTab.Feed
+    val actions = rememberHomeActions(startTab)
     Scaffold(
         topBar = {
             if (actions.showTopBar) {
@@ -53,7 +54,7 @@ fun Home() {
         HomeGraph(
             modifier = Modifier.padding(paddingValues),
             navController = actions.navController,
-            startDestination = HomeScreen.Community.route
+            startDestination = startTab.route
         )
     }
 }
