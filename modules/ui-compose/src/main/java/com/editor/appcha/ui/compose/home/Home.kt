@@ -1,12 +1,18 @@
 package com.editor.appcha.ui.compose.home
 
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -69,6 +75,17 @@ private fun HomeTopBar(
             currentTab = currentTab,
             navigateToTab = navigateToTab
         )
+
+        Surface(
+            shape = CircleShape,
+            color = AppTheme.colors.gray2,
+            modifier = Modifier
+                .size(24.dp)
+                .align(Alignment.CenterVertically)
+        ) {
+            // TODO: 프로필 사진
+        }
+        Spacer(modifier = Modifier.width(16.dp))
     }
 }
 
