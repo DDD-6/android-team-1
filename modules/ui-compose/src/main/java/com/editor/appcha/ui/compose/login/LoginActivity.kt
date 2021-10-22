@@ -30,11 +30,11 @@ class LoginActivity : BaseActivity<LoginViewModel, LoginViewModel.Event>() {
 
     override fun handleEvent(event: LoginViewModel.Event) {
         when (event) {
-            LoginViewModel.Event.Success -> {
+            LoginViewModel.Event.StartHome -> {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
-            LoginViewModel.Event.Error -> {
+            LoginViewModel.Event.ShowErrorToast -> {
                 //TODO("서버 통신 에러 필요")
             }
         }

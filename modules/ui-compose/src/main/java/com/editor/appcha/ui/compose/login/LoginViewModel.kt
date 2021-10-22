@@ -19,14 +19,14 @@ class LoginViewModel @Inject constructor(
 ) : BaseViewModel<Event, State>(State()) {
 
     sealed class Event: ViewEvent {
-        object Success : Event()
-        object Error: Event()
+        object StartHome : Event()
+        object ShowErrorToast: Event()
     }
 
     data class State(
         val error: String = "",
         val isLoading: Boolean = false
-    )  : ViewState
+    ) : ViewState
 
     fun login(token: String) = launch {
         loginUseCase(token)
