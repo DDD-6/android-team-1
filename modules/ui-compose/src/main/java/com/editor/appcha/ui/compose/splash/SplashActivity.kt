@@ -1,14 +1,15 @@
 package com.editor.appcha.ui.compose.splash
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.ui.graphics.Color
 import com.editor.appcha.navigation.MainNavigator
 import com.editor.appcha.ui.compose.R
 import com.editor.appcha.ui.compose.base.BaseActivity
+import com.editor.appcha.ui.compose.login.LoginActivity
 import com.editor.appcha.ui.compose.splash.SplashViewModel.Event
 import com.editor.appcha.ui.compose.theme.AppTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -49,7 +50,8 @@ class SplashActivity : BaseActivity<SplashViewModel, Event>() {
     }
 
     private fun startSignInActivity() {
-        Log.i(TAG, "startSignInActivity")
-        // TODO: SignInActivity 시작
+        startActivity(Intent(this, LoginActivity::class.java))
+        overridePendingTransition(R.anim.push_enter, R.anim.push_exit)
+        finish()
     }
 }
