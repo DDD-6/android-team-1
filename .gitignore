@@ -153,6 +153,8 @@ obj/
 .idea/jarRepositories.xml
 .idea/navEditor.xml
 .idea/deploymentTargetDropDown.xml
+.idea/codeStyles/codeStyleConfig.xml
+.idea/codeStyles/Project.xml
 
 # OS-specific files
 .DS_Store?
