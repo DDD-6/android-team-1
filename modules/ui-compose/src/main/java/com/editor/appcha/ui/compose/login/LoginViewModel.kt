@@ -7,10 +7,6 @@ import com.editor.appcha.domain.usecase.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import com.editor.appcha.ui.compose.login.LoginViewModel.Event
 import com.editor.appcha.ui.compose.login.LoginViewModel.State
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onCompletion
-import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
 @HiltViewModel
@@ -29,20 +25,20 @@ class LoginViewModel @Inject constructor(
     ) : ViewState
 
     fun login(token: String) = launch {
-        loginUseCase(token)
-            .onStart {
-                updateState { it.copy(isLoading = true) }
-            }
-            .onCompletion {
-                updateState { it.copy(isLoading = false) }
-            }
-            .catch { exception ->
-                updateState { it.copy(error = exception.message.toString(), isLoading = false) }
-            }
-            .collect {
-                if (it.isExist) {
-                    event(Event.Success)
-                }
-            }
+//        loginUseCase(token)
+//            .onStart {
+//                updateState { it.copy(isLoading = true) }
+//            }
+//            .onCompletion {
+//                updateState { it.copy(isLoading = false) }
+//            }
+//            .catch { exception ->
+//                updateState { it.copy(error = exception.message.toString(), isLoading = false) }
+//            }
+//            .collect {
+//                if (it.isExist) {
+//                    event(Event.Success)
+//                }
+//            }
     }
 }

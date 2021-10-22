@@ -1,8 +1,8 @@
 package com.editor.appcha.domain.repo
 
+import com.editor.appcha.core.arch.Result
 import com.editor.appcha.domain.model.User
-import kotlinx.coroutines.flow.Flow
 
 interface LoginRepository {
-    fun loginKakao(token: String) : Flow<User>
+    suspend fun loginKakao(token: String) : Result<User>
 }
