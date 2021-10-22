@@ -2,10 +2,10 @@ package com.editor.appcha.domain.model
 
 data class User(
     val isExist: Boolean,
-    val info: Info
+    val info: Profile
 ) {
 
-    data class Info(
+    data class Profile(
         val nickname: String
     )
 }
