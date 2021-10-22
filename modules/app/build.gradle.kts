@@ -17,6 +17,7 @@ android {
         versionCode = Configs.VERSION_CODE
         versionName = Configs.VERSION_NAME
 
+        manifestPlaceholders["kakao_api_native_key"] = getKakaoApiNativeKey()
         buildConfigField("String", "KAKAO_API_NATIVE_KEY", getKakaoApiNativeKey())
     }
 
@@ -24,7 +25,10 @@ android {
         getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -42,6 +46,7 @@ hilt {
 
 dependencies {
     implementation(project(Dependencies.Module.UI))
+    implementation(project(Dependencies.Module.UI_COMPOSE))
     implementation(project(Dependencies.Module.DOMAIN))
     implementation(project(Dependencies.Module.DATA))
     implementation(project(Dependencies.Module.REMOTE))
@@ -55,4 +60,7 @@ dependencies {
     implementation(Dependencies.COROUTINES_CORE)
 
     implementation(Dependencies.KAKAO_USER)
+
+    implementation(Dependencies.GRPC_API)
+    implementation(Dependencies.PREFERENCE)
 }

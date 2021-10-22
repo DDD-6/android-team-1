@@ -10,68 +10,96 @@ inline val PluginDependenciesSpec.`kotlin-kapt` get() = kotlin("kapt")
 
 inline val PluginDependenciesSpec.`navigation-args` get() = id("androidx.navigation.safeargs.kotlin")
 inline val PluginDependenciesSpec.`hilt-android` get() = id("dagger.hilt.android.plugin")
+inline val PluginDependenciesSpec.`protobuf` get() = id("com.google.protobuf")
 
 object Dependencies {
     //Module
     object Module {
-        const val UI                        = ":ui"
-        const val DOMAIN                    = ":domain"
-        const val DATA                      = ":data"
-        const val REMOTE                    = ":remote"
-        const val LOCAL                     = ":local"
+        const val UI = ":ui"
+        const val UI_COMPOSE = ":ui-compose"
+        const val DOMAIN = ":domain"
+        const val DATA = ":data"
+        const val REMOTE = ":remote"
+        const val LOCAL = ":local"
 
-        const val CORE_ARCH                 = ":core-arch"
-        const val CORE_UI                   = ":core-ui"
+        const val CORE_ARCH = ":core-arch"
+        const val CORE_UI = ":core-ui"
 
-        const val NAVIGATION                = ":navigation"
+        const val NAVIGATION = ":navigation"
     }
 
     //Classpath
     object Project {
-        const val GRADLE                = "com.android.tools.build:gradle:${Versions.GRADLE}"
-        const val KOTLIN                = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN}"
-        const val NAVIGATION            = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.NAVIGATION}"
-        const val HILT                  = "com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}"
+        const val GRADLE = "com.android.tools.build:gradle:${Versions.GRADLE}"
+        const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN}"
+        const val NAVIGATION =
+            "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.NAVIGATION}"
+        const val HILT = "com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}"
+        const val PROTOBUF_GRADLE_PLUGIN =
+            "com.google.protobuf:protobuf-gradle-plugin:${Versions.PROTOBUF_GRADLE_PLUGIN}"
     }
 
     //Android
-    const val CORE_KTX                  = "androidx.core:core-ktx:${Versions.CORE_KTX}"
-    const val APPCOMPAT                 = "androidx.appcompat:appcompat:${Versions.APPCOMPAT}"
-    const val MATERIAL                  = "com.google.android.material:material:${Versions.MATERIAL}"
-    const val ACTIVITY_KTX              = "androidx.activity:activity-ktx:${Versions.ACTIVITY_KTX}"
-    const val FRAGMENT_KTX              = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX}"
+    const val CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
+    const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.APPCOMPAT}"
+    const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
+    const val ACTIVITY_KTX = "androidx.activity:activity-ktx:${Versions.ACTIVITY_KTX}"
+    const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX}"
+    const val PREFERENCE = "androidx.preference:preference-ktx:${Versions.PREFERENCE}"
 
     //Jetpack Compose
-    const val COMPOSE_UI                = "androidx.compose.ui:ui:${Versions.COMPOSE}"
-    const val COMPOSE_TOOLING           = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE}"
-    const val COMPOSE_FOUNDATION        = "androidx.compose.foundation:foundation:${Versions.COMPOSE}"
-    const val COMPOSE_MATERIAL          = "androidx.compose.material:material:${Versions.COMPOSE}"
-    const val COMPOSE_ACTIVITY          = "androidx.activity:activity-compose:${Versions.COMPOSE_ACTIVITY}"
-    const val COMPOSE_VIEWMODEL         = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.COMPOSE_VIEWMODEL}"
+    const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.COMPOSE}"
+    const val COMPOSE_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE}"
+    const val COMPOSE_FOUNDATION = "androidx.compose.foundation:foundation:${Versions.COMPOSE}"
+    const val COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.COMPOSE}"
+    const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose:${Versions.COMPOSE_ACTIVITY}"
+    const val COMPOSE_VIEW_MODEL =
+        "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.COMPOSE_VIEW_MODEL}"
+    const val COMPOSE_NAVIGATION =
+        "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION}"
+    const val COMPOSE_CONSTRAINT_LAYOUT =
+        "androidx.constraintlayout:constraintlayout-compose:${Versions.COMPOSE_CONSTRAINT_LAYOUT}"
+
+    const val APPCOMPANIST_SYSTEM_UI_CONTROLLER =
+        "com.google.accompanist:accompanist-systemuicontroller:${Versions.APPCOMPANIST}"
 
     //Glide
-    const val GLIDE                     = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
-    const val GLIDE_COMPILER            = "com.github.bumptech.glide:compiler:${Versions.GLIDE}"
+    const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
+    const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE}"
 
     //Dependency Injection
-    const val HILT                      = "com.google.dagger:hilt-android:${Versions.HILT}"
-    const val HILT_CORE                 = "com.google.dagger:hilt-core:${Versions.HILT}"
-    const val HILT_COMPILER             = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
+    const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
+    const val HILT_CORE = "com.google.dagger:hilt-core:${Versions.HILT}"
+    const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
 
     //Navigation Component
-    const val NAVIGATION_FRAGMENT       = "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
-    const val NAVIGATION_UI             = "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
+    const val NAVIGATION_FRAGMENT =
+        "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
+    const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
 
     //Coroutines
-    const val COROUTINES_CORE           = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}"
-    const val COROUTINES_ANDROID        = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
-
-    //Lifecycle Component
-    const val LIFECYCLE_VIEWMODEL       = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
-    const val LIFECYCLE_LIVEDATA        = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
-    const val LIFECYCLE_COMPILER        = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"
-    const val LIFECYCLE_RUNTIME         = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE}"
+    const val COROUTINES_CORE =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}"
+    const val COROUTINES_ANDROID =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
 
     //Kakao
-    const val KAKAO_USER                = "com.kakao.sdk:v2-user:${Versions.KAKAO}"
+    const val KAKAO_USER = "com.kakao.sdk:v2-user:${Versions.KAKAO}"
+
+    //Lifecycle Component
+    const val LIFECYCLE_VIEW_MODEL =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
+    const val LIFECYCLE_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE}"
+    const val LIFECYCLE_COMPILER = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"
+    const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE}"
+
+    //GRPC
+    const val GRPC_OKHTTP = "io.grpc:grpc-okhttp:${Versions.GRPC}"
+    const val GRPC_STUB = "io.grpc:grpc-stub:${Versions.GRPC}"
+    const val GRPC_API = "io.grpc:grpc-api:${Versions.GRPC}"
+    const val GRPC_PROTOBUF_LITE = "io.grpc:grpc-protobuf-lite:${Versions.GRPC}"
+    const val GRPC_KOTLIN_STUB = "io.grpc:grpc-kotlin-stub:${Versions.GRPC_KOTLIN}"
+
+    //Protobuf
+    const val PROTOBUF_JAVALITE = "com.google.protobuf:protobuf-javalite:${Versions.PROTOBUF}"
 }

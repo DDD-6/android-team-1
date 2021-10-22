@@ -21,17 +21,10 @@ android {
 }
 
 dependencies {
-    implementation(project(Dependencies.Module.CORE_ARCH))
-
     implementation(Dependencies.CORE_KTX)
-    implementation(Dependencies.APPCOMPAT)
-
-    implementation(Dependencies.ACTIVITY_KTX)
-    implementation(Dependencies.FRAGMENT_KTX)
-
-    implementation(Dependencies.LIFECYCLE_VIEWMODEL)
-    implementation(Dependencies.LIFECYCLE_RUNTIME)
-
+    implementation(Dependencies.LIFECYCLE_VIEW_MODEL)
     implementation(Dependencies.COROUTINES_ANDROID)
+
+    implementation(Dependencies.MATERIAL)
 }
 
