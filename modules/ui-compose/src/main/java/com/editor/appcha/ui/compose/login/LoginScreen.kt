@@ -1,7 +1,5 @@
 package com.editor.appcha.ui.compose.login
 
-import android.app.Activity
-import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -25,28 +23,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.editor.appcha.ui.compose.login.provider.KakaoLoginProvider
+import com.editor.appcha.ui.compose.login.provider.OnKakaoLoginListener
 
 @Composable
-fun LoginActivityScreen(activity: Activity, viewModel: LoginViewModel, kakaoLoginProvider: KakaoLoginProvider) {
+fun LoginActivityScreen(viewModel: LoginViewModel, onKakaoLoginListener: OnKakaoLoginListener) {
     val state by viewModel.state.collectAsState()
-    val context = LocalContext.current
 
     LoginScreen(
         isLoading = state.isLoading,
-        onKakaoLoginClick = {
-            kakaoLoginProvider.login(activity) { oAuthToken, throwable ->
-                if (throwable != null) {
-                    Toast.makeText(context, throwable.message, Toast.LENGTH_SHORT).show()
-                } else {
-                    oAuthToken?.accessToken?.let {
-                        viewModel.login(it)
-                    }
-                }
-            }
-        }
+        onKakaoLoginClick = { onKakaoLoginListener.onLogin() }
     )
 }
 
@@ -79,7 +65,7 @@ fun KakaoLoginButton(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
         colors = ButtonDefaults.buttonColors(Color.Yellow),
-        contentPadding = PaddingValues(top = 12.dp, bottom = 12.dp)
+        contentPadding = PaddingValues(vertical = 12.dp)
     ) {
         Icon(
             Icons.Filled.Favorite,

@@ -2,10 +2,12 @@ package com.editor.appcha.ui.compose.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import com.editor.appcha.ui.compose.base.BaseActivity
 import com.editor.appcha.ui.compose.login.provider.KakaoLoginProvider
+import com.editor.appcha.ui.compose.login.provider.OnKakaoLoginListener
 import com.editor.appcha.ui.compose.main.MainActivity
 import com.editor.appcha.ui.compose.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,7 +25,7 @@ class LoginActivity : BaseActivity<LoginViewModel, LoginViewModel.Event>() {
         super.onCreate(savedInstanceState)
         setContent {
             AppTheme {
-                LoginActivityScreen(this, vm, kakaoLoginProvider)
+                LoginActivityScreen(vm, onKakaoLoginListener)
             }
         }
     }
@@ -36,6 +38,20 @@ class LoginActivity : BaseActivity<LoginViewModel, LoginViewModel.Event>() {
             }
             LoginViewModel.Event.ShowErrorToast -> {
                 //TODO("서버 통신 에러 필요")
+            }
+        }
+    }
+
+    private val onKakaoLoginListener = object : OnKakaoLoginListener {
+        override fun onLogin() {
+            kakaoLoginProvider.login(this@LoginActivity) { oAuthToken, throwable ->
+                if (throwable != null) {
+                    Toast.makeText(this@LoginActivity, throwable.message, Toast.LENGTH_SHORT).show()
+                } else {
+                    oAuthToken?.accessToken?.let {
+                        vm.login(it)
+                    }
+                }
             }
         }
     }
