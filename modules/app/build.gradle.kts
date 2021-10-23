@@ -46,17 +46,12 @@ hilt {
 
 dependencies {
     implementation(project(Dependencies.Module.UI))
-    implementation(project(Dependencies.Module.DOMAIN))
-    implementation(project(Dependencies.Module.DATA))
     implementation(project(Dependencies.Module.REMOTE))
-    implementation(project(Dependencies.Module.LOCAL))
-    implementation(project(Dependencies.Module.CORE_ARCH))
 
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_COMPILER)
 
     implementation(Dependencies.COROUTINES_CORE)
-
     implementation(Dependencies.KAKAO_USER)
 
     implementation(Dependencies.GRPC_API)

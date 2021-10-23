@@ -8,7 +8,6 @@ inline val PluginDependenciesSpec.`kotlin-jvm` get() = kotlin("jvm")
 inline val PluginDependenciesSpec.`kotlin-android` get() = kotlin("android")
 inline val PluginDependenciesSpec.`kotlin-kapt` get() = kotlin("kapt")
 
-inline val PluginDependenciesSpec.`navigation-args` get() = id("androidx.navigation.safeargs.kotlin")
 inline val PluginDependenciesSpec.`hilt-android` get() = id("dagger.hilt.android.plugin")
 inline val PluginDependenciesSpec.`protobuf` get() = id("com.google.protobuf")
 
@@ -28,8 +27,6 @@ object Dependencies {
     object Project {
         const val GRADLE = "com.android.tools.build:gradle:${Versions.GRADLE}"
         const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN}"
-        const val NAVIGATION =
-            "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.NAVIGATION}"
         const val HILT = "com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}"
         const val PROTOBUF_GRADLE_PLUGIN =
             "com.google.protobuf:protobuf-gradle-plugin:${Versions.PROTOBUF_GRADLE_PLUGIN}"
@@ -67,11 +64,6 @@ object Dependencies {
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
     const val HILT_CORE = "com.google.dagger:hilt-core:${Versions.HILT}"
     const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
-
-    //Navigation Component
-    const val NAVIGATION_FRAGMENT =
-        "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
-    const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
 
     //Coroutines
     const val COROUTINES_CORE =
