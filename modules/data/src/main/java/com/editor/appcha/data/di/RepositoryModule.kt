@@ -1,7 +1,9 @@
 package com.editor.appcha.data.di
 
+import com.editor.appcha.data.repo.FeedRepositoryImpl
 import com.editor.appcha.data.repo.GreeterRepositoryImpl
 import com.editor.appcha.data.repo.LoginRepositoryImpl
+import com.editor.appcha.domain.repo.FeedRepository
 import com.editor.appcha.domain.repo.GreeterRepository
 import com.editor.appcha.domain.repo.LoginRepository
 import dagger.Binds
@@ -22,7 +24,9 @@ internal abstract class RepositoryModule {
 
     @Singleton
     @Binds
-    abstract fun provideLoginRepository(
-        loginRepositoryImpl: LoginRepositoryImpl
-    ): LoginRepository
+    abstract fun bindsLoginRepository(repo: LoginRepositoryImpl): LoginRepository
+
+    @Singleton
+    @Binds
+    abstract fun bindsFeedRepository(repo: FeedRepositoryImpl): FeedRepository
 }
