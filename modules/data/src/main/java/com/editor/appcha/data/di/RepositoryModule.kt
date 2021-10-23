@@ -1,7 +1,9 @@
 package com.editor.appcha.data.di
 
 import com.editor.appcha.data.repo.GreeterRepositoryImpl
+import com.editor.appcha.data.repo.LoginRepositoryImpl
 import com.editor.appcha.domain.repo.GreeterRepository
+import com.editor.appcha.domain.repo.LoginRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,4 +19,10 @@ internal abstract class RepositoryModule {
     abstract fun provideGreeterRepository(
         greeterRepositoryImpl: GreeterRepositoryImpl
     ): GreeterRepository
+
+    @Singleton
+    @Binds
+    abstract fun provideLoginRepository(
+        loginRepositoryImpl: LoginRepositoryImpl
+    ): LoginRepository
 }

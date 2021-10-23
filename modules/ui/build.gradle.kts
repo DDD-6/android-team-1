@@ -1,3 +1,5 @@
+import PropertyUtil.getKakaoApiNativeKey
+
 plugins {
     `android-library`
     `kotlin-android`
