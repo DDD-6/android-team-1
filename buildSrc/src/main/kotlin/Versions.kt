@@ -34,14 +34,17 @@ object Versions {
     //Coroutines
     const val COROUTINES = "1.5.2"
 
+    //Kakao API
+    const val KAKAO                 = "2.8.1"
+
     //Lifecycle Component
     const val LIFECYCLE = "2.4.0-alpha03"
 
-    // GRPC
+    //GRPC
     const val GRPC = "1.41.0"
     const val GRPC_KOTLIN = "1.1.0"
 
-    // Protobuf
+    //Protobuf
     const val PROTOBUF = "3.18.0"
     const val PROTOBUF_GRADLE_PLUGIN = "0.8.17"
 }

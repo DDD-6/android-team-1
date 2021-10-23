@@ -1,3 +1,5 @@
+import PropertyUtil.getKakaoApiNativeKey
+
 plugins {
     `android-application`
     `kotlin-android`
@@ -14,6 +16,9 @@ android {
         targetSdk = Configs.TARGET_SDK
         versionCode = Configs.VERSION_CODE
         versionName = Configs.VERSION_NAME
+
+        manifestPlaceholders["kakao_api_native_key"] = getKakaoApiNativeKey()
+        buildConfigField("String", "KAKAO_API_NATIVE_KEY", getKakaoApiNativeKey())
     }
 
     buildTypes {
@@ -53,6 +58,8 @@ dependencies {
     kapt(Dependencies.HILT_COMPILER)
 
     implementation(Dependencies.COROUTINES_CORE)
+
+    implementation(Dependencies.KAKAO_USER)
 
     implementation(Dependencies.GRPC_API)
     implementation(Dependencies.PREFERENCE)

@@ -83,6 +83,9 @@ object Dependencies {
     const val COROUTINES_ANDROID =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
 
+    //Kakao
+    const val KAKAO_USER = "com.kakao.sdk:v2-user:${Versions.KAKAO}"
+
     //Lifecycle Component
     const val LIFECYCLE_VIEW_MODEL =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
@@ -90,13 +93,13 @@ object Dependencies {
     const val LIFECYCLE_COMPILER = "androidx.lifecycle:lifecycle-compiler:${Versions.LIFECYCLE}"
     const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE}"
 
-    // GRPC
+    //GRPC
     const val GRPC_OKHTTP = "io.grpc:grpc-okhttp:${Versions.GRPC}"
     const val GRPC_STUB = "io.grpc:grpc-stub:${Versions.GRPC}"
     const val GRPC_API = "io.grpc:grpc-api:${Versions.GRPC}"
     const val GRPC_PROTOBUF_LITE = "io.grpc:grpc-protobuf-lite:${Versions.GRPC}"
     const val GRPC_KOTLIN_STUB = "io.grpc:grpc-kotlin-stub:${Versions.GRPC_KOTLIN}"
 
-    // Protobuf
+    //Protobuf
     const val PROTOBUF_JAVALITE = "com.google.protobuf:protobuf-javalite:${Versions.PROTOBUF}"
 }
