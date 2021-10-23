@@ -46,13 +46,11 @@ hilt {
 
 dependencies {
     implementation(project(Dependencies.Module.UI))
-    implementation(project(Dependencies.Module.UI_COMPOSE))
     implementation(project(Dependencies.Module.DOMAIN))
     implementation(project(Dependencies.Module.DATA))
     implementation(project(Dependencies.Module.REMOTE))
     implementation(project(Dependencies.Module.LOCAL))
     implementation(project(Dependencies.Module.CORE_ARCH))
-    implementation(project(Dependencies.Module.CORE_UI))
 
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_COMPILER)
@@ -63,4 +61,6 @@ dependencies {
 
     implementation(Dependencies.GRPC_API)
     implementation(Dependencies.PREFERENCE)
+
+    implementation(Dependencies.MATERIAL)
 }

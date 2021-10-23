@@ -16,16 +16,12 @@ object Dependencies {
     //Module
     object Module {
         const val UI = ":ui"
-        const val UI_COMPOSE = ":ui-compose"
         const val DOMAIN = ":domain"
         const val DATA = ":data"
         const val REMOTE = ":remote"
         const val LOCAL = ":local"
 
         const val CORE_ARCH = ":core-arch"
-        const val CORE_UI = ":core-ui"
-
-        const val NAVIGATION = ":navigation"
     }
 
     //Classpath
