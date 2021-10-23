@@ -39,26 +39,11 @@
                     android:scheme="kakao${kakao_api_native_key}" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".ui.compose.splash.SplashActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+      
         <activity
             android:name=".ui.compose.login.LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
-
-        <activity
-            android:name=".ui.compose.main.MainActivity"
-            android:screenOrientation="portrait" />
 
     </application>
 </manifest>

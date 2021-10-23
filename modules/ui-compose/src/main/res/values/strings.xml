@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feed">피드</string>
+    <string name="community">커뮤니티</string>
+    <string name="profile">내정보</string>
+</resources>

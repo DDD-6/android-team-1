@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.ui.graphics.Color
-import com.editor.appcha.navigation.MainNavigator
+import com.editor.appcha.navigation.HomeNavigator
 import com.editor.appcha.ui.compose.R
 import com.editor.appcha.ui.compose.base.BaseActivity
 import com.editor.appcha.ui.compose.login.LoginActivity
@@ -23,7 +23,7 @@ class SplashActivity : BaseActivity<SplashViewModel, Event>() {
     override val vm: SplashViewModel by viewModels()
 
     @Inject
-    lateinit var mainNavigator: MainNavigator
+    lateinit var homeNavigator: HomeNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +44,7 @@ class SplashActivity : BaseActivity<SplashViewModel, Event>() {
     }
 
     private fun startMainActivity() {
-        mainNavigator.launch(this)
+        homeNavigator.launch(this)
         overridePendingTransition(R.anim.push_enter, R.anim.push_exit)
         finish()
     }
