@@ -1,26 +1,27 @@
 package com.editor.appcha.ui.base
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.editor.appcha.core.ui.event.ViewEvent
-import com.editor.appcha.core.ui.viewmodel.BaseViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-abstract class BaseActivity<VM : BaseViewModel<VE, *>, VE : ViewEvent> :
-    AppCompatActivity() {
+abstract class BaseActivity<VM : BaseViewModel<VE, *>, VE : ViewEvent> : ComponentActivity() {
 
-    protected abstract val vm: VM
+    @Suppress("unused", "PropertyName")
+    protected inline val TAG: String
+        get() = this::class.java.simpleName
+
+    protected abstract val viewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                vm.event.collect { event -> handleEvent(event) }
+                viewModel.event.collect { event -> handleEvent(event) }
             }
         }
     }
