@@ -9,11 +9,12 @@ import androidx.activity.viewModels
 import com.editor.appcha.api.kakao.KakaoLoginProvider
 import com.editor.appcha.ui.base.BaseActivity
 import com.editor.appcha.ui.home.HomeActivity
+import com.editor.appcha.ui.login.LoginViewModel.Event
 import com.editor.appcha.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginActivity : BaseActivity<LoginViewModel, LoginViewModel.Event>() {
+class LoginActivity : BaseActivity<LoginViewModel, Event>() {
 
     override val viewModel by viewModels<LoginViewModel>()
 
@@ -31,23 +32,23 @@ class LoginActivity : BaseActivity<LoginViewModel, LoginViewModel.Event>() {
         }
     }
 
-    override fun handleEvent(event: LoginViewModel.Event) {
-        when (event) {
-            LoginViewModel.Event.StartHome -> {
-                HomeActivity.launch(this)
-                finish()
-            }
-            LoginViewModel.Event.ShowErrorToast -> {
-                //TODO("서버 통신 에러 필요")
-            }
-        }
-    }
-
     private fun tryKakaoLogin() = kakaoLoginProvider.login(this) { oAuthToken, throwable ->
         when {
             throwable != null -> Toast.makeText(this, throwable.message, Toast.LENGTH_SHORT).show()
             oAuthToken != null -> viewModel.login(oAuthToken.accessToken)
             else -> Unit
+        }
+    }
+
+    override fun handleEvent(event: Event) {
+        when (event) {
+            Event.StartHome -> {
+                HomeActivity.launch(this)
+                finish()
+            }
+            Event.ShowErrorToast -> {
+                //TODO("서버 통신 에러 필요")
+            }
         }
     }
 
