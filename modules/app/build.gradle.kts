@@ -1,3 +1,7 @@
+import PropertyUtil.getDebugKeyAlias
+import PropertyUtil.getDebugKeyPassword
+import PropertyUtil.getDebugStoreFilePath
+import PropertyUtil.getDebugStorePassword
 import PropertyUtil.getKakaoApiNativeKey
 
 plugins {
@@ -21,6 +25,15 @@ android {
         buildConfigField("String", "KAKAO_API_NATIVE_KEY", getKakaoApiNativeKey())
     }
 
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file(getDebugStoreFilePath())
+            storePassword = getDebugStorePassword()
+            keyAlias = getDebugKeyAlias()
+            keyPassword = getDebugKeyPassword()
+        }
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
@@ -29,6 +42,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        getByName("debug") {
+            isDebuggable = true
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
