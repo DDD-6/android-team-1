@@ -64,6 +64,7 @@ object Dependencies {
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
     const val HILT_CORE = "com.google.dagger:hilt-core:${Versions.HILT}"
     const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
+    const val HILT_NAVIGATION = "androidx.hilt:hilt-navigation-compose:1.0.0-alpha03"
 
     //Coroutines
     const val COROUTINES_CORE =

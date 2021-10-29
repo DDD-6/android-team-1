@@ -58,6 +58,7 @@ dependencies {
 
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_COMPILER)
+    implementation(Dependencies.HILT_NAVIGATION)
 
     implementation(Dependencies.COROUTINES_ANDROID)
 
