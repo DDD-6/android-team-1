@@ -64,4 +64,9 @@ dependencies {
     implementation(Dependencies.COROUTINES_ANDROID)
 
     implementation(Dependencies.KAKAO_USER)
+
+    testImplementation(Dependencies.JUNIT)
+    testImplementation(Dependencies.TRUTH)
+    testImplementation(Dependencies.MOCKK)
+    testImplementation(Dependencies.COROUTINES_TEST)
 }

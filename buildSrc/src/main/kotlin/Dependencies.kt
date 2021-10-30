@@ -73,6 +73,8 @@ object Dependencies {
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}"
     const val COROUTINES_ANDROID =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
+    const val COROUTINES_TEST =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.COROUTINES}"
 
     //Kakao
     const val KAKAO_USER = "com.kakao.sdk:v2-user:${Versions.KAKAO}"
@@ -93,4 +95,8 @@ object Dependencies {
 
     //Protobuf
     const val PROTOBUF_JAVALITE = "com.google.protobuf:protobuf-javalite:${Versions.PROTOBUF}"
+
+    const val JUNIT = "junit:junit:4.13.2"
+    const val TRUTH = "com.google.truth:truth:1.1.3"
+    const val MOCKK = "io.mockk:mockk:1.12.0"
 }
