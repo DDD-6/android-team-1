@@ -21,7 +21,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -57,8 +56,7 @@ fun Home() {
     ) { paddingValues ->
         HomeGraph(
             modifier = Modifier.padding(paddingValues),
-            navController = actions.navController,
-            startDestination = startTab.route,
+            actions = actions,
             snackbarHostState = scaffoldState.snackbarHostState
         )
     }
@@ -145,18 +143,20 @@ private fun HomeTab(
 @Composable
 private fun HomeGraph(
     modifier: Modifier,
-    navController: NavHostController,
-    startDestination: String,
+    actions: HomeActions,
     snackbarHostState: SnackbarHostState,
 ) {
     NavHost(
-        navController = navController,
-        startDestination = startDestination,
+        navController = actions.navController,
+        startDestination = actions.startDestination,
         modifier = modifier
     ) {
 
         composable(HomeRoute.Feed.route) {
-            FeedScreen(snackbarHostState)
+            FeedScreen(
+                snackbarHostState = snackbarHostState,
+                navigateToDetail = {  /* TODO: NavigateToDetail */ }
+            )
         }
 
         composable(
