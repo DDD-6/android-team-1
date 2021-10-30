@@ -58,6 +58,8 @@ dependencies {
     implementation(project(Dependencies.Module.UI))
     implementation(project(Dependencies.Module.REMOTE))
 
+    implementation(Dependencies.STARTUP)
+
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_COMPILER)
 
@@ -65,7 +67,7 @@ dependencies {
     implementation(Dependencies.KAKAO_USER)
 
     implementation(Dependencies.GRPC_API)
-    implementation(Dependencies.PREFERENCE)
+    implementation(Dependencies.PREFERENCE_KTX)
 
     implementation(Dependencies.MATERIAL)
 }
