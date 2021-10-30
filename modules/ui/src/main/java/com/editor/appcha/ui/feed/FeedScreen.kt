@@ -14,21 +14,18 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.SnackbarHostState
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.editor.appcha.ui.R
 import com.editor.appcha.ui.base.observe
-import com.editor.appcha.ui.component.AppText
 import com.editor.appcha.ui.component.NetworkImage
 import com.editor.appcha.ui.feed.FeedViewModel.Event
 import com.editor.appcha.ui.model.AppModel
@@ -124,20 +121,14 @@ private fun FeedItem(
                     author = feed.author
                 )
             }
-            Surface(
+            FeedSummary(
+                summary = feed.summary,
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(AppTheme.colors.gray2),
-                shape = verticalRoundedCornerShape(bottom = 8.dp),
-                color = Color.Transparent
-            ) {
-                AppText(
-                    modifier = Modifier.padding(vertical = 16.dp, horizontal = 20.dp),
-                    text = feed.summary,
-                    color = AppTheme.colors.gray4,
-                    style = AppTheme.typography.body2
-                )
-            }
+                backgroundColor = AppTheme.colors.gray2,
+                shape = verticalRoundedCornerShape(bottom = 8.dp)
+            )
         }
     }
 }
