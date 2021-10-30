@@ -22,7 +22,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.editor.appcha.ui.R
 import com.editor.appcha.ui.base.observe
 import com.editor.appcha.ui.component.NetworkImage
@@ -34,10 +33,10 @@ import com.editor.appcha.ui.util.playStore
 
 @Composable
 fun FeedScreen(
+    viewModel: FeedViewModel,
     snackbarHostState: SnackbarHostState,
     navigateToDetail: (feedId: String) -> Unit,
 ) {
-    val viewModel = hiltViewModel<FeedViewModel>()
     val state: FeedViewModel.State by viewModel.state.collectAsState()
     val feeds = state.feeds
     val context = LocalContext.current
