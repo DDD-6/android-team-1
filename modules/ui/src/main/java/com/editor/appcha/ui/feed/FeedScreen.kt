@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -30,6 +31,7 @@ import com.editor.appcha.ui.model.AppModel
 import com.editor.appcha.ui.model.FeedModel
 import com.editor.appcha.ui.theme.AppTheme
 import com.editor.appcha.ui.util.playStore
+import kotlinx.coroutines.launch
 
 @Composable
 fun FeedScreen(
@@ -59,6 +61,7 @@ fun FeedScreen(
             onFeedClick = viewModel::navigateToDetail,
             onAppClick = viewModel::openMarket
         )
+
     }
     if (state.loading) {
         Loading()
@@ -70,26 +73,37 @@ private fun FeedItems(
     feeds: List<FeedModel>,
     onFeedClick: (FeedModel) -> Unit,
     onAppClick: (AppModel) -> Unit
-) = LazyColumn(
-    state = rememberLazyListState(),
-    contentPadding = PaddingValues(24.dp),
-    verticalArrangement = Arrangement.spacedBy(24.dp)
 ) {
-    items(
-        items = feeds,
-        key = { it.id }
-    ) { feed ->
-        if (feed.apps.isEmpty()) {
-            FeedItem(
-                feed = feed,
-                onFeedClick = onFeedClick
-            )
-        } else {
-            FeedItemWithApps(
-                feed = feed,
-                onFeedClick = onFeedClick,
-                onAppClick = onAppClick
-            )
+    val state = rememberLazyListState()
+    val coroutineScope = rememberCoroutineScope()
+    LazyColumn(
+        state = state,
+        verticalArrangement = Arrangement.spacedBy(24.dp)
+    ) {
+        items(
+            items = feeds,
+            key = { it.id }
+        ) { feed ->
+            if (feed.apps.isEmpty()) {
+                FeedItem(
+                    feed = feed,
+                    modifier = Modifier.padding(PaddingValues(horizontal = 24.dp)),
+                    onFeedClick = onFeedClick
+                )
+            } else {
+                FeedItemWithApps(
+                    feed = feed,
+                    onFeedClick = onFeedClick,
+                    onAppClick = onAppClick
+                )
+            }
+        }
+        if (feeds.isNotEmpty()) {
+            item {
+                FeedScrollToTop {
+                    coroutineScope.launch { state.animateScrollToItem(0) }
+                }
+            }
         }
     }
 }
@@ -97,10 +111,11 @@ private fun FeedItems(
 @Composable
 private fun FeedItem(
     feed: FeedModel,
+    modifier: Modifier = Modifier,
     onFeedClick: (FeedModel) -> Unit
 ) {
     FeedCard(
-        modifier = Modifier.aspectRatio(312f / 400f),
+        modifier = modifier.aspectRatio(312f / 400f),
         onClick = { onFeedClick(feed) }
     ) {
         Column {
@@ -131,6 +146,7 @@ private fun FeedItem(
 @Composable
 private fun FeedItemWithApps(
     feed: FeedModel,
+    modifier: Modifier = Modifier,
     onFeedClick: (FeedModel) -> Unit,
     onAppClick: (AppModel) -> Unit
 ) {
