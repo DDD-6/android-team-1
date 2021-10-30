@@ -8,6 +8,7 @@ data class FeedRemote(
     val title: String,
     val author: String,
     val summary: String,
+    val imageUrl: String,
     val apps: List<AppRemote>
 ) : RemoteModel<FeedData> {
 
@@ -16,6 +17,7 @@ data class FeedRemote(
         title = title,
         author = author,
         summary = summary,
+        imageUrl = imageUrl,
         apps = apps.map { it.toData() }
     )
 }

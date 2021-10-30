@@ -7,6 +7,7 @@ data class FeedModel(
     val title: String,
     val author: String,
     val summary: String,
+    val imageUrl: String,
     val apps: List<AppModel>
 ) {
 
@@ -16,6 +17,7 @@ data class FeedModel(
             title = domain.title,
             author = domain.author,
             summary = domain.summary,
+            imageUrl = domain.imageUrl,
             apps = domain.apps.map { AppModel(it) }
         )
     }
