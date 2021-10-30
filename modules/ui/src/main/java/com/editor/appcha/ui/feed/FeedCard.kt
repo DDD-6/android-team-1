@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
@@ -54,7 +53,6 @@ fun FeedTitleAndAuthor(
         )
         Spacer(modifier = Modifier.height(8.dp))
         AppText(
-            modifier = Modifier.padding(start = 4.dp),
             text = author,
             color = Color.White,
             style = AppTheme.typography.body2

@@ -1,6 +1,5 @@
 package com.editor.appcha.ui.feed
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,7 +31,6 @@ import com.editor.appcha.ui.model.AppModel
 import com.editor.appcha.ui.model.FeedModel
 import com.editor.appcha.ui.theme.AppTheme
 import com.editor.appcha.ui.util.playStore
-import com.editor.appcha.ui.util.verticalRoundedCornerShape
 
 @Composable
 fun FeedScreen(
@@ -123,11 +121,9 @@ private fun FeedItem(
             }
             FeedSummary(
                 summary = feed.summary,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(AppTheme.colors.gray2),
-                backgroundColor = AppTheme.colors.gray2,
-                shape = verticalRoundedCornerShape(bottom = 8.dp)
+                modifier = Modifier.fillMaxWidth(),
+                paddingValues = PaddingValues(horizontal = 20.dp, vertical = 16.dp),
+                backgroundColor = AppTheme.colors.gray2
             )
         }
     }
