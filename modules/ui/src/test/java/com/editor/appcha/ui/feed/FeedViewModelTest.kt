@@ -35,6 +35,21 @@ class FeedViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `Feed를 불러오는데 실패하면 error 상태가 된다`() = runBlockingTest {
+        // given
+        val error = RuntimeException()
+        coEvery { getFeedList(Unit) } returns Result.failure(error)
+
+        // when
+        val viewModel = FeedViewModel(getFeedList)
+
+        // then
+        val expected = FeedViewModel.State(error = error)
+        val actual = viewModel.state.first()
+        assertThat(actual).isEqualTo(expected)
+    }
+
+    @Test
     fun `Feed를 클릭하면 NavigateToDetail Event가 발생한다`() = runBlockingTest {
         // given
         val feed = feed()

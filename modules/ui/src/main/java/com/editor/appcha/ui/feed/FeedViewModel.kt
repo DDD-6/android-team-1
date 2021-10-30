@@ -41,7 +41,7 @@ class FeedViewModel @Inject constructor(
 
             when (result) {
                 is Result.Success -> updateState { State(feeds = result.value, loading = false) }
-                is Result.Failure -> State(error = result.throwable)
+                is Result.Failure -> updateState { State(error = result.throwable) }
             }
         }
     }
