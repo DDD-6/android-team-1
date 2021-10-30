@@ -4,7 +4,7 @@ import com.editor.appcha.core.arch.Result
 import com.editor.appcha.domain.model.App
 import com.editor.appcha.domain.model.Feed
 import com.editor.appcha.domain.usecase.GetFeedList
-import com.editor.appcha.ui.CoroutinesRule
+import com.editor.appcha.ui.BaseTest
 import com.editor.appcha.ui.feed.FeedViewModel.Event
 import com.editor.appcha.ui.model.FeedModel
 import com.google.common.truth.Truth.assertThat
@@ -13,14 +13,10 @@ import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Rule
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class FeedViewModelTest {
-
-    @get:Rule
-    var coroutinesRule = CoroutinesRule()
+class FeedViewModelTest : BaseTest() {
 
     private val getFeedList: GetFeedList = mockk()
 
