@@ -10,5 +10,16 @@ internal class FeedRemoteDataSourceImpl @Inject constructor(
     grpc: Grpc
 ) : FeedRemoteDataSource {
 
-    override suspend fun getFeeds(): Result<List<FeedData>> = Result.success(emptyList())
+    // TODO: 서버 구현
+    override suspend fun getFeeds(): Result<List<FeedData>> = Result.success(
+        List(5) {
+            FeedData(
+                id = "$it",
+                title = "$it Feed title",
+                author = "$it Feed author",
+                "Lorem ipsum dolor sit amet.",
+                apps = emptyList()
+            )
+        }
+    )
 }
