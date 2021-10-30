@@ -60,6 +60,8 @@ object Dependencies {
     const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
     const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE}"
 
+    const val COIL_COMPOSE = "io.coil-kt:coil-compose:1.4.0"
+
     //Dependency Injection
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
     const val HILT_CORE = "com.google.dagger:hilt-core:${Versions.HILT}"
