@@ -8,6 +8,8 @@ import com.editor.appcha.ui.base.BaseActivity
 import com.editor.appcha.ui.base.EmptyViewEvent
 import com.editor.appcha.ui.base.EmptyViewModel
 import com.editor.appcha.ui.theme.AppTheme
+import com.editor.appcha.ui.theme.StatusBarColor
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,6 +23,9 @@ class HomeActivity : BaseActivity<EmptyViewModel, EmptyViewEvent>() {
         super.onCreate(savedInstanceState)
 
         setContent {
+            val systemUiController = rememberSystemUiController()
+            systemUiController.setStatusBarColor(StatusBarColor)
+
             AppTheme {
                 Home()
             }

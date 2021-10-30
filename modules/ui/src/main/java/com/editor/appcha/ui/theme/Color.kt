@@ -20,6 +20,8 @@ val PrimaryLight = Color(0xFFEDF8F7)
 val StatusError = Color(0xFFEB4B4B)
 val StatusCaution = Color(0xFFFF8E3C)
 
+val StatusBarColor = Color(0xFFE8E8EA)
+
 @Stable
 class AppColors(
     gray1: Color = Gray1,
