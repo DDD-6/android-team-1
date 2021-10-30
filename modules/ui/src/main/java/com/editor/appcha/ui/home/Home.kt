@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Scaffold
+import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.Surface
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,8 +29,8 @@ import androidx.navigation.navArgument
 import com.editor.appcha.ui.community.Community
 import com.editor.appcha.ui.community.CommunityWrite
 import com.editor.appcha.ui.component.AppText
-import com.editor.appcha.ui.feed.FeedScreen
 import com.editor.appcha.ui.feed.FeedDetail
+import com.editor.appcha.ui.feed.FeedScreen
 import com.editor.appcha.ui.home.HomeRoute.Feed.FEED_ID_KEY
 import com.editor.appcha.ui.home.HomeRoute.Profile.PROFILE_ID_KEY
 import com.editor.appcha.ui.profile.Profile
@@ -40,6 +42,7 @@ private val TabHeight = 56.dp
 fun Home() {
     val startTab = HomeTab.Feed
     val actions = rememberHomeActions(startTab)
+    val scaffoldState = rememberScaffoldState()
     Scaffold(
         topBar = {
             if (actions.showTopBar) {
@@ -49,12 +52,14 @@ fun Home() {
                     navigateToTab = { tab -> actions.navigate(tab) }
                 )
             }
-        }
+        },
+        scaffoldState = scaffoldState,
     ) { paddingValues ->
         HomeGraph(
             modifier = Modifier.padding(paddingValues),
             navController = actions.navController,
-            startDestination = startTab.route
+            startDestination = startTab.route,
+            snackbarHostState = scaffoldState.snackbarHostState
         )
     }
 }
@@ -142,6 +147,7 @@ private fun HomeGraph(
     modifier: Modifier,
     navController: NavHostController,
     startDestination: String,
+    snackbarHostState: SnackbarHostState,
 ) {
     NavHost(
         navController = navController,
@@ -150,7 +156,7 @@ private fun HomeGraph(
     ) {
 
         composable(HomeRoute.Feed.route) {
-            FeedScreen()
+            FeedScreen(snackbarHostState)
         }
 
         composable(

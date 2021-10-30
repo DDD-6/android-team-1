@@ -11,6 +11,7 @@ import com.editor.appcha.ui.feed.FeedViewModel.State
 import com.editor.appcha.ui.model.AppModel
 import com.editor.appcha.ui.model.FeedModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 @HiltViewModel
@@ -32,13 +33,16 @@ class FeedViewModel @Inject constructor(
         val feeds: List<FeedModel>? = null,
         val loading: Boolean = true,
         val error: Throwable? = null,
-    ) : ViewState
+    ) : ViewState {
+        val hasError = error != null
+    }
 
     init {
         launch {
             val result = getFeedList()
                 .map { feeds -> feeds.map { FeedModel(it) } }
 
+            delay(500L)
             when (result) {
                 is Result.Success -> updateState { State(feeds = result.value, loading = false) }
                 is Result.Failure -> updateState { State(error = result.throwable) }
