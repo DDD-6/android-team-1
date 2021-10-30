@@ -126,9 +126,7 @@ private fun FeedItem(
             ) {
                 NetworkImage(data = feed.imageUrl)
                 FeedTitleAndAuthor(
-                    modifier = Modifier
-                        .padding(start = 20.dp, end = 20.dp, bottom = 12.dp)
-                        .align(Alignment.BottomStart),
+                    modifier = Modifier.align(Alignment.BottomStart),
                     title = feed.title,
                     author = feed.author
                 )
@@ -136,8 +134,7 @@ private fun FeedItem(
             FeedSummary(
                 summary = feed.summary,
                 modifier = Modifier.fillMaxWidth(),
-                paddingValues = PaddingValues(horizontal = 20.dp, vertical = 16.dp),
-                backgroundColor = AppTheme.colors.gray2
+                paddingValues = PaddingValues(horizontal = 20.dp, vertical = 16.dp)
             )
         }
     }
