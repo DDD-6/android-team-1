@@ -7,5 +7,5 @@ import org.junit.Rule
 abstract class BaseTest {
 
     @get:Rule
-    protected var coroutinesRule = CoroutinesRule()
+    var coroutinesRule = CoroutinesRule()
 }
