@@ -29,7 +29,7 @@ class FeedViewModel @Inject constructor(
     }
 
     data class State(
-        val feeds: List<FeedModel> = emptyList(),
+        val feeds: List<FeedModel>? = null,
         val loading: Boolean = true,
         val error: Throwable? = null,
     ) : ViewState
@@ -40,7 +40,7 @@ class FeedViewModel @Inject constructor(
                 .map { feeds -> feeds.map { FeedModel(it) } }
 
             when (result) {
-                is Result.Success -> updateState { State(result.value) }
+                is Result.Success -> updateState { State(feeds = result.value, loading = false) }
                 is Result.Failure -> State(error = result.throwable)
             }
         }
