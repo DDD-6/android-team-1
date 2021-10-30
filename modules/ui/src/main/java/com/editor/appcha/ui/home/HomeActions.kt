@@ -59,6 +59,6 @@ class HomeActions(
     }
 
     fun navigateToProfile(profileId: String) {
-        navController.navigate("${HomeScreen.Profile.route}/$profileId")
+        navController.navigate("${HomeRoute.Profile.route}/$profileId")
     }
 }

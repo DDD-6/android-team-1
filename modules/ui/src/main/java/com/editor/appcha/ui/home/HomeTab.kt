@@ -8,12 +8,12 @@ sealed class HomeTab(
     @StringRes val textStringRes: Int
 ) {
     object Feed : HomeTab(
-        route = HomeScreen.Feed.route,
+        route = HomeRoute.Feed.route,
         textStringRes = R.string.feed
     )
 
     object Community : HomeTab(
-        route = HomeScreen.Community.route,
+        route = HomeRoute.Community.route,
         textStringRes = R.string.community
     )
 }
