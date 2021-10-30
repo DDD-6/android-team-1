@@ -1,7 +1,3 @@
-import PropertyUtil.getDebugKeyAlias
-import PropertyUtil.getDebugKeyPassword
-import PropertyUtil.getDebugStoreFilePath
-import PropertyUtil.getDebugStorePassword
 import PropertyUtil.getKakaoApiNativeKey
 
 plugins {
@@ -27,10 +23,7 @@ android {
 
     signingConfigs {
         getByName("debug") {
-            storeFile = file(getDebugStoreFilePath())
-            storePassword = getDebugStorePassword()
-            keyAlias = getDebugKeyAlias()
-            keyPassword = getDebugKeyPassword()
+            storeFile = file("$rootDir/keystore/debug/debug.keystore")
         }
     }
 
