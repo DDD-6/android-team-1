@@ -18,7 +18,7 @@ internal class FeedRemoteDataSourceImpl @Inject constructor(
                 title = "$it Feed title",
                 author = "$it Feed author",
                 "Lorem ipsum dolor sit amet.",
-                imageUrl = "http://image.kyobobook.co.kr/newimages/giftshop_new/goods/400/1148/S1626762386377.jpg",
+                imageUrl = "https://cdn.pixabay.com/photo/2020/03/31/14/28/paper-4987885_1280.jpg",
                 apps = emptyList()
             )
         }
