@@ -9,7 +9,8 @@ object Versions {
     const val MATERIAL = "1.2.1"
     const val ACTIVITY_KTX = "1.3.1"
     const val FRAGMENT_KTX = "1.3.6"
-    const val PREFERENCE = "1.1.1"
+    const val PREFERENCE_KTX = "1.1.1"
+    const val STARTUP = "1.1.0"
 
     //Compose
     const val COMPOSE = "1.1.0-alpha05"

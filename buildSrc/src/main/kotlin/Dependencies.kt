@@ -38,7 +38,8 @@ object Dependencies {
     const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
     const val ACTIVITY_KTX = "androidx.activity:activity-ktx:${Versions.ACTIVITY_KTX}"
     const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX}"
-    const val PREFERENCE = "androidx.preference:preference-ktx:${Versions.PREFERENCE}"
+    const val PREFERENCE_KTX = "androidx.preference:preference-ktx:${Versions.PREFERENCE_KTX}"
+    const val STARTUP = "androidx.startup:startup-runtime:${Versions.STARTUP}"
 
     //Jetpack Compose
     const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.COMPOSE}"

@@ -21,6 +21,12 @@ android {
         buildConfigField("String", "KAKAO_API_NATIVE_KEY", getKakaoApiNativeKey())
     }
 
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("$rootDir/keystore/debug/debug.keystore")
+        }
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
@@ -29,6 +35,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        getByName("debug") {
+            isDebuggable = true
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -48,6 +58,8 @@ dependencies {
     implementation(project(Dependencies.Module.UI))
     implementation(project(Dependencies.Module.REMOTE))
 
+    implementation(Dependencies.STARTUP)
+
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_COMPILER)
 
@@ -55,7 +67,7 @@ dependencies {
     implementation(Dependencies.KAKAO_USER)
 
     implementation(Dependencies.GRPC_API)
-    implementation(Dependencies.PREFERENCE)
+    implementation(Dependencies.PREFERENCE_KTX)
 
     implementation(Dependencies.MATERIAL)
 }
