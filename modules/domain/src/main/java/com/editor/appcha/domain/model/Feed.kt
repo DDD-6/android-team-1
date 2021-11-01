@@ -7,5 +7,6 @@ data class Feed(
     val title: String,
     val author: String,
     val summary: String,
+    val imageUrl: String,
     val apps: List<App>
 ) : DomainModel

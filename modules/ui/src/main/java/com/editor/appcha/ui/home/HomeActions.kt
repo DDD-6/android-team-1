@@ -27,6 +27,8 @@ class HomeActions(
     val navController: NavHostController
 ) {
 
+    val startDestination = startTab.route
+
     val tabs: List<HomeTab> = listOf(
         HomeTab.Feed,
         HomeTab.Community

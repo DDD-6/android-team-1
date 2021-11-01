@@ -32,7 +32,9 @@ class FeedViewModel @Inject constructor(
         val feeds: List<FeedModel>? = null,
         val loading: Boolean = true,
         val error: Throwable? = null,
-    ) : ViewState
+    ) : ViewState {
+        val hasError = error != null
+    }
 
     init {
         launch {

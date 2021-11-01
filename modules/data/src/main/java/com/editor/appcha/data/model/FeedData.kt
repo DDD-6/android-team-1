@@ -8,6 +8,7 @@ data class FeedData(
     val title: String,
     val author: String,
     val summary: String,
+    val imageUrl: String,
     val apps: List<AppData>
 ) : DataModel<Feed> {
 
@@ -16,6 +17,7 @@ data class FeedData(
         title = title,
         author = author,
         summary = summary,
+        imageUrl = imageUrl,
         apps = apps.map { it.toDomain() }
     )
 }

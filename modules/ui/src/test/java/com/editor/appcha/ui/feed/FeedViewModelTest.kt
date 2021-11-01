@@ -89,12 +89,14 @@ class FeedViewModelTest : BaseTest() {
         title: String = "",
         author: String = "",
         summary: String = "",
+        imageUrl: String = "",
         apps: List<App> = emptyList()
     ): Feed = Feed(
         id = id,
         title = title,
         author = author,
         summary = summary,
+        imageUrl = imageUrl,
         apps = apps
     )
 

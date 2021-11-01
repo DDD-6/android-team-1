@@ -1,7 +1,6 @@
 package com.editor.appcha.ui.theme
 
 import androidx.compose.material.LocalTextStyle
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -44,6 +43,12 @@ data class AppTypography(
         fontWeight = FontWeight.Normal,
         lineHeight = 24.sp,
     ),
+    val body2: TextStyle = TextStyle(
+        fontFamily = SpoqaHanSansNeo,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Normal,
+        lineHeight = 22.sp,
+    ),
     val button: TextStyle = TextStyle(
         fontFamily = SpoqaHanSansNeo,
         fontSize = 14.sp,
@@ -69,8 +74,9 @@ enum class AppTextStyle(
     H2(23.sp, 9.sp),
     H3(21.sp, 9.sp),
     Body1(18.sp, 9.sp),
+    Body2(17.sp, 5.sp),
     Button(15.sp, 5.sp),
-    Caption(12.sp, 4.sp);
+    Caption(12.sp, 4.sp)
 }
 
 @Composable
@@ -83,12 +89,13 @@ fun appTextStyle(style: TextStyle = LocalTextStyle.current): AppTextStyle {
     }
 
     return when {
-        equals(MaterialTheme.typography.h1, style) -> AppTextStyle.H1
-        equals(MaterialTheme.typography.h2, style) -> AppTextStyle.H2
-        equals(MaterialTheme.typography.h3, style) -> AppTextStyle.H3
-        equals(MaterialTheme.typography.body1, style) -> AppTextStyle.Body1
-        equals(MaterialTheme.typography.button, style) -> AppTextStyle.Button
-        equals(MaterialTheme.typography.caption, style) -> AppTextStyle.Caption
+        equals(AppTheme.typography.h1, style) -> AppTextStyle.H1
+        equals(AppTheme.typography.h2, style) -> AppTextStyle.H2
+        equals(AppTheme.typography.h3, style) -> AppTextStyle.H3
+        equals(AppTheme.typography.body1, style) -> AppTextStyle.Body1
+        equals(AppTheme.typography.body2, style) -> AppTextStyle.Body2
+        equals(AppTheme.typography.button, style) -> AppTextStyle.Button
+        equals(AppTheme.typography.caption, style) -> AppTextStyle.Caption
         else -> AppTextStyle.Unspecified
     }
 }
