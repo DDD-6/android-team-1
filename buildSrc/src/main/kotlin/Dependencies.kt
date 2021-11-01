@@ -60,16 +60,21 @@ object Dependencies {
     const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
     const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE}"
 
+    const val COIL_COMPOSE = "io.coil-kt:coil-compose:1.4.0"
+
     //Dependency Injection
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
     const val HILT_CORE = "com.google.dagger:hilt-core:${Versions.HILT}"
     const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
+    const val HILT_NAVIGATION = "androidx.hilt:hilt-navigation-compose:1.0.0-alpha03"
 
     //Coroutines
     const val COROUTINES_CORE =
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}"
     const val COROUTINES_ANDROID =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
+    const val COROUTINES_TEST =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.COROUTINES}"
 
     //Kakao
     const val KAKAO_USER = "com.kakao.sdk:v2-user:${Versions.KAKAO}"
@@ -90,4 +95,8 @@ object Dependencies {
 
     //Protobuf
     const val PROTOBUF_JAVALITE = "com.google.protobuf:protobuf-javalite:${Versions.PROTOBUF}"
+
+    const val JUNIT = "junit:junit:4.13.2"
+    const val TRUTH = "com.google.truth:truth:1.1.3"
+    const val MOCKK = "io.mockk:mockk:1.12.0"
 }

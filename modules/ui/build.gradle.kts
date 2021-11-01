@@ -53,13 +53,20 @@ dependencies {
     implementation(Dependencies.COMPOSE_NAVIGATION)
 
     implementation(Dependencies.APPCOMPANIST_SYSTEM_UI_CONTROLLER)
+    implementation(Dependencies.COIL_COMPOSE)
 
     implementation(Dependencies.LIFECYCLE_RUNTIME)
 
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_COMPILER)
+    implementation(Dependencies.HILT_NAVIGATION)
 
     implementation(Dependencies.COROUTINES_ANDROID)
 
     implementation(Dependencies.KAKAO_USER)
+
+    testImplementation(Dependencies.JUNIT)
+    testImplementation(Dependencies.TRUTH)
+    testImplementation(Dependencies.MOCKK)
+    testImplementation(Dependencies.COROUTINES_TEST)
 }
