@@ -3,6 +3,7 @@ package com.editor.appcha.ui.feed
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -78,7 +79,8 @@ private fun FeedItems(
     val coroutineScope = rememberCoroutineScope()
     LazyColumn(
         state = state,
-        verticalArrangement = Arrangement.spacedBy(24.dp)
+        verticalArrangement = Arrangement.spacedBy(24.dp),
+        contentPadding = PaddingValues(vertical = 16.dp)
     ) {
         items(
             items = feeds,
@@ -87,7 +89,6 @@ private fun FeedItems(
             if (feed.apps.isEmpty()) {
                 FeedItem(
                     feed = feed,
-                    modifier = Modifier.padding(PaddingValues(horizontal = 24.dp)),
                     onFeedClick = onFeedClick
                 )
             } else {
@@ -111,12 +112,56 @@ private fun FeedItems(
 @Composable
 private fun FeedItem(
     feed: FeedModel,
-    modifier: Modifier = Modifier,
     onFeedClick: (FeedModel) -> Unit
 ) {
+    FeedThumbnail(
+        feed = feed,
+        modifier = Modifier
+            .padding(PaddingValues(horizontal = 24.dp))
+            .aspectRatio(312f / 400f),
+        onClick = onFeedClick
+    ) {
+        FeedSummary(
+            summary = feed.summary,
+            modifier = Modifier.fillMaxWidth(),
+            paddingValues = PaddingValues(horizontal = 20.dp, vertical = 16.dp)
+        )
+    }
+}
+
+@Composable
+private fun FeedItemWithApps(
+    feed: FeedModel,
+    modifier: Modifier = Modifier,
+    onFeedClick: (FeedModel) -> Unit,
+    onAppClick: (AppModel) -> Unit
+) {
+    Column(modifier = modifier) {
+        FeedThumbnail(
+            feed = feed,
+            modifier = Modifier
+                .padding(PaddingValues(horizontal = 24.dp))
+                .aspectRatio(312f / 192f),
+            onClick = onFeedClick
+        )
+        AppItems(
+            apps = feed.apps,
+            modifier = Modifier.padding(top = 12.dp),
+            onClick = onAppClick
+        )
+    }
+}
+
+@Composable
+private fun FeedThumbnail(
+    feed: FeedModel,
+    modifier: Modifier,
+    onClick: (FeedModel) -> Unit,
+    content: @Composable ColumnScope.() -> Unit = { }
+) {
     FeedCard(
-        modifier = modifier.aspectRatio(312f / 400f),
-        onClick = { onFeedClick(feed) }
+        modifier = modifier,
+        onClick = { onClick(feed) }
     ) {
         Column {
             Box(
@@ -131,23 +176,9 @@ private fun FeedItem(
                     author = feed.author
                 )
             }
-            FeedSummary(
-                summary = feed.summary,
-                modifier = Modifier.fillMaxWidth(),
-                paddingValues = PaddingValues(horizontal = 20.dp, vertical = 16.dp)
-            )
+            content()
         }
     }
-}
-
-@Composable
-private fun FeedItemWithApps(
-    feed: FeedModel,
-    modifier: Modifier = Modifier,
-    onFeedClick: (FeedModel) -> Unit,
-    onAppClick: (AppModel) -> Unit
-) {
-    // TODO: Feed Item with Apps UI
 }
 
 @Composable
