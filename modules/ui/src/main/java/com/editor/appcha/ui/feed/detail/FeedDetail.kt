@@ -1,4 +1,4 @@
-package com.editor.appcha.ui.feed
+package com.editor.appcha.ui.feed.detail
 
 import androidx.compose.runtime.Composable
 import com.editor.appcha.ui.component.AppText

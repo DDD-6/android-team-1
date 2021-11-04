@@ -37,6 +37,7 @@ object Dependencies {
     const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.APPCOMPAT}"
     const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
     const val ACTIVITY_KTX = "androidx.activity:activity-ktx:${Versions.ACTIVITY_KTX}"
+    const val ACTIVITY_COMPOSE = "androidx.activity:activity-compose:${Versions.ACTIVITY_KTX}"
     const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX}"
     const val PREFERENCE_KTX = "androidx.preference:preference-ktx:${Versions.PREFERENCE_KTX}"
     const val STARTUP = "androidx.startup:startup-runtime:${Versions.STARTUP}"

@@ -29,10 +29,8 @@ import androidx.navigation.navArgument
 import com.editor.appcha.ui.community.Community
 import com.editor.appcha.ui.community.CommunityWrite
 import com.editor.appcha.ui.component.AppText
-import com.editor.appcha.ui.feed.FeedDetail
 import com.editor.appcha.ui.feed.FeedScreen
 import com.editor.appcha.ui.feed.FeedViewModel
-import com.editor.appcha.ui.home.HomeRoute.Feed.FEED_ID_KEY
 import com.editor.appcha.ui.home.HomeRoute.Profile.PROFILE_ID_KEY
 import com.editor.appcha.ui.profile.Profile
 import com.editor.appcha.ui.theme.AppTheme
@@ -161,13 +159,6 @@ private fun HomeGraph(
                 snackbarHostState = snackbarHostState,
                 navigateToDetail = {  /* TODO: NavigateToDetail */ }
             )
-        }
-
-        composable(
-            route = "${HomeRoute.Feed.route}/$FEED_ID_KEY",
-            arguments = listOf(navArgument(FEED_ID_KEY) { type = NavType.IntType })
-        ) {
-            FeedDetail()
         }
 
         composable(HomeRoute.Community.route) {

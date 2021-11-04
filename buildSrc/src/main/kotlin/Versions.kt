@@ -7,7 +7,7 @@ object Versions {
     const val CORE_KTX = "1.3.2"
     const val APPCOMPAT = "1.2.0"
     const val MATERIAL = "1.2.1"
-    const val ACTIVITY_KTX = "1.3.1"
+    const val ACTIVITY_KTX = "1.4.0-rc01"
     const val FRAGMENT_KTX = "1.3.6"
     const val PREFERENCE_KTX = "1.1.1"
     const val STARTUP = "1.1.0"
