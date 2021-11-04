@@ -18,6 +18,7 @@ import dagger.hilt.components.SingletonComponent
 internal object GrpcModule {
 
     private const val TAG = "GRPC"
+    private const val HEADER_KEY_AUTHORIZATION = "Authorization"
 
     @Provides
     fun provideGrpcName(): GrpcName = GrpcName("localhost")
@@ -31,8 +32,8 @@ internal object GrpcModule {
     ): GrpcClientInterceptors {
         val interceptors = listOf(
             GrpcHeaderInterceptor {
-                // TODO: Preferences에서 Header 가져오기
-                mapOf()
+                val token = sharedPreferences.getString(HEADER_KEY_AUTHORIZATION, null) ?: ""
+                mapOf(HEADER_KEY_AUTHORIZATION to token)
             },
             GrpcLoggingInterceptor { message, level ->
                 when (level) {
