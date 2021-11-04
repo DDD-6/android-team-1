@@ -156,8 +156,7 @@ private fun HomeGraph(
             val viewModel: FeedViewModel = hiltViewModel()
             FeedScreen(
                 viewModel = viewModel,
-                snackbarHostState = snackbarHostState,
-                navigateToDetail = {  /* TODO: NavigateToDetail */ }
+                snackbarHostState = snackbarHostState
             )
         }
 
