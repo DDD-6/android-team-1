@@ -6,7 +6,7 @@ import com.editor.appcha.domain.model.Feed
 import com.editor.appcha.domain.repo.FeedRepository
 import javax.inject.Inject
 
-class GetFeedList @Inject constructor(
+class GetFeedListUseCase @Inject constructor(
     private val repo: FeedRepository
 ) : UseCase<Unit, List<Feed>>() {
 
