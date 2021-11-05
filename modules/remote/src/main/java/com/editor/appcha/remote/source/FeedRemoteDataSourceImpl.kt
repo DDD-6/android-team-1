@@ -1,10 +1,13 @@
 package com.editor.appcha.remote.source
 
 import com.editor.appcha.core.arch.Result
+import com.editor.appcha.core.arch.mapper.toData
 import com.editor.appcha.data.model.AppData
 import com.editor.appcha.data.model.FeedData
+import com.editor.appcha.data.model.FeedDetailData
 import com.editor.appcha.data.source.FeedRemoteDataSource
 import com.editor.appcha.remote.grpc.Grpc
+import com.editor.appcha.remote.model.FeedDetailRemote
 import javax.inject.Inject
 
 internal class FeedRemoteDataSourceImpl @Inject constructor(
@@ -13,6 +16,16 @@ internal class FeedRemoteDataSourceImpl @Inject constructor(
 
     // TODO: 서버 구현
     override suspend fun getFeeds(): Result<List<FeedData>> = Result.success(feeds)
+
+    override suspend fun getFeed(feedId: String): Result<FeedDetailData> = Result.success(
+        FeedDetailRemote(
+            id = "id",
+            title = "title",
+            author = "author",
+            emptyList(),
+            isFavorite = false
+        )
+    ).toData()
 }
 
 

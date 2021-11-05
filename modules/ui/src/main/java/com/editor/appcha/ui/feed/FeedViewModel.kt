@@ -2,7 +2,7 @@ package com.editor.appcha.ui.feed
 
 import com.editor.appcha.core.arch.Result
 import com.editor.appcha.core.arch.usecase.invoke
-import com.editor.appcha.domain.usecase.GetFeedList
+import com.editor.appcha.domain.usecase.GetFeedListUseCase
 import com.editor.appcha.ui.base.BaseViewModel
 import com.editor.appcha.ui.base.ViewEvent
 import com.editor.appcha.ui.base.ViewState
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FeedViewModel @Inject constructor(
-    private val getFeedList: GetFeedList
+    private val getFeedList: GetFeedListUseCase
 ) : BaseViewModel<Event, State>(State()) {
 
     sealed class Event : ViewEvent {
