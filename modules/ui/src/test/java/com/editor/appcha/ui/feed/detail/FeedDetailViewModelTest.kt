@@ -47,6 +47,21 @@ class FeedDetailViewModelTest : BaseTest() {
         coVerify(exactly = 0) { getFeedUseCase(id) }
     }
 
+    @Test
+    fun `찜하기 상태에서 찜하기 버튼을 클릭하면 해제 상태가 된다`() = runBlockingTest {
+        // given
+        coEvery { getFeedUseCase(any()) } returns Result.success(feedDetail(isFavorite = true))
+        val savedStateHandle = SavedStateHandle(mapOf(FeedDetailViewModel.KEY_FEED_ID to "1"))
+        val viewModel = FeedDetailViewModel(getFeedUseCase, savedStateHandle)
+
+        // when
+        viewModel.toggleFavorite()
+        val actual = viewModel.state.first().feed?.isFavorite
+
+        // then
+        assertThat(actual).isFalse()
+    }
+
     private fun feedDetail(
         id: String = "id",
         title: String = "title",

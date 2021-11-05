@@ -35,6 +35,15 @@ class FeedDetailViewModel @Inject constructor(
         }
     }
 
+    fun toggleFavorite() {
+        val feed = state.value.feed ?: return
+        updateState { state ->
+            state.copy(
+                feed = feed.copy(isFavorite = feed.isFavorite.not())
+            )
+        }
+    }
+
     companion object {
         const val KEY_FEED_ID = "KEY_FEED_ID"
     }
