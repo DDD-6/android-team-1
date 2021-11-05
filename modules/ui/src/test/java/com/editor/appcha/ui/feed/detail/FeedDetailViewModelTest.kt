@@ -6,6 +6,7 @@ import com.editor.appcha.domain.model.FeedDetail
 import com.editor.appcha.domain.usecase.GetFeedUseCase
 import com.editor.appcha.domain.usecase.UpdateFavoriteUseCase
 import com.editor.appcha.ui.BaseTest
+import com.editor.appcha.ui.feed.detail.FeedDetailViewModel.Event
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -77,6 +78,20 @@ class FeedDetailViewModelTest : BaseTest() {
 
         // then
         coVerify { updateFavoriteUseCase(any()) }
+    }
+
+    @Test
+    fun `뒤로가기 버튼을 클릭하면 NavigateUp Event가 발생한다`() = runBlockingTest {
+        // given
+        val savedStateHandle = SavedStateHandle(mapOf(FeedDetailViewModel.KEY_FEED_ID to "1"))
+        val viewModel = FeedDetailViewModel(mockk(), mockk(), savedStateHandle)
+
+        // when
+        viewModel.navigateUp()
+
+        // then
+        val actual = viewModel.event.first()
+        assertThat(actual).isInstanceOf(Event.NavigateUp::class.java)
     }
 
     private fun feedDetail(

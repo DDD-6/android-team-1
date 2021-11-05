@@ -6,8 +6,9 @@ import com.editor.appcha.core.arch.Result
 import com.editor.appcha.domain.usecase.GetFeedUseCase
 import com.editor.appcha.domain.usecase.UpdateFavoriteUseCase
 import com.editor.appcha.ui.base.BaseViewModel
-import com.editor.appcha.ui.base.EmptyViewEvent
+import com.editor.appcha.ui.base.ViewEvent
 import com.editor.appcha.ui.base.ViewState
+import com.editor.appcha.ui.feed.detail.FeedDetailViewModel.Event
 import com.editor.appcha.ui.feed.detail.FeedDetailViewModel.State
 import com.editor.appcha.ui.model.FeedDetailModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +19,11 @@ class FeedDetailViewModel @Inject constructor(
     private val getFeed: GetFeedUseCase,
     private val updateFavorite: UpdateFavoriteUseCase,
     savedStateHandle: SavedStateHandle
-) : BaseViewModel<EmptyViewEvent, State>(State()) {
+) : BaseViewModel<Event, State>(State()) {
+
+    sealed class Event : ViewEvent {
+        object NavigateUp : Event()
+    }
 
     data class State(val feed: FeedDetailModel? = null) : ViewState
 
@@ -51,6 +56,10 @@ class FeedDetailViewModel @Inject constructor(
         updateState { state ->
             state.copy(feed = feed.copy(isFavorite = feed.isFavorite.not()))
         }
+    }
+
+    fun navigateUp() {
+        event(Event.NavigateUp)
     }
 
     companion object {
