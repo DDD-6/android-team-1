@@ -20,8 +20,8 @@ class FeedDetailViewModel @Inject constructor(
     data class State(val feed: FeedDetailModel? = null) : ViewState
 
     init {
-        val feedId: String? = savedStateHandle.get(KEY_FEED_ID)
-        if (!feedId.isNullOrEmpty()) {
+        val feedId: String = savedStateHandle.get(KEY_FEED_ID) ?: ""
+        if (feedId.isNotEmpty()) {
             fetchFeed(feedId)
         }
     }
