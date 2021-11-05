@@ -28,6 +28,7 @@ import com.editor.appcha.ui.R
 import com.editor.appcha.ui.base.observe
 import com.editor.appcha.ui.component.NetworkImage
 import com.editor.appcha.ui.feed.FeedViewModel.Event
+import com.editor.appcha.ui.feed.detail.FeedDetailActivity
 import com.editor.appcha.ui.model.AppModel
 import com.editor.appcha.ui.model.FeedModel
 import com.editor.appcha.ui.theme.AppTheme
@@ -37,8 +38,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun FeedScreen(
     viewModel: FeedViewModel,
-    snackbarHostState: SnackbarHostState,
-    navigateToDetail: (feedId: String) -> Unit,
+    snackbarHostState: SnackbarHostState
 ) {
     val state: FeedViewModel.State by viewModel.state.collectAsState()
     val feeds = state.feeds
@@ -46,7 +46,7 @@ fun FeedScreen(
 
     viewModel.event.observe { event ->
         when (event) {
-            is Event.NavigateToDetail -> navigateToDetail(event.id)
+            is Event.NavigateToDetail -> FeedDetailActivity.launch(context, event.id)
             is Event.OpenMarket -> context.playStore(event.url)
         }
     }

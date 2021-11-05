@@ -43,6 +43,8 @@ dependencies {
     implementation(project(Module.DOMAIN))
     implementation(project(Module.CORE_ARCH))
 
+    implementation(Dependencies.ACTIVITY_COMPOSE)
+
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.COMPOSE_UI)
     implementation(Dependencies.COMPOSE_TOOLING)
