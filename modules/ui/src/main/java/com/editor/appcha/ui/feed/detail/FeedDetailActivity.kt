@@ -26,7 +26,7 @@ class FeedDetailActivity : BaseActivity<EmptyViewModel, EmptyViewEvent>() {
 
         setContent {
             AppTheme {
-                FeedDetail()
+
             }
         }
     }
