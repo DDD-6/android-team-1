@@ -1,8 +1,10 @@
 package com.editor.appcha.ui.feed.detail
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import com.editor.appcha.core.arch.Result
 import com.editor.appcha.domain.usecase.GetFeedUseCase
+import com.editor.appcha.domain.usecase.UpdateFavoriteUseCase
 import com.editor.appcha.ui.base.BaseViewModel
 import com.editor.appcha.ui.base.EmptyViewEvent
 import com.editor.appcha.ui.base.ViewState
@@ -14,6 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class FeedDetailViewModel @Inject constructor(
     private val getFeed: GetFeedUseCase,
+    private val updateFavorite: UpdateFavoriteUseCase,
     savedStateHandle: SavedStateHandle
 ) : BaseViewModel<EmptyViewEvent, State>(State()) {
 
@@ -37,10 +40,16 @@ class FeedDetailViewModel @Inject constructor(
 
     fun toggleFavorite() {
         val feed = state.value.feed ?: return
-        updateState { state ->
-            state.copy(
-                feed = feed.copy(isFavorite = feed.isFavorite.not())
+        launch {
+            val params = UpdateFavoriteUseCase.Params(
+                feedId = feed.id,
+                isFavorite = feed.isFavorite.not()
             )
+            updateFavorite(params)
+                .onFailure { Log.e(TAG, "찜하기 상태 변경 실패 $feed") }
+        }
+        updateState { state ->
+            state.copy(feed = feed.copy(isFavorite = feed.isFavorite.not()))
         }
     }
 
