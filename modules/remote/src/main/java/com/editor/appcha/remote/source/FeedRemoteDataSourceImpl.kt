@@ -13,6 +13,8 @@ internal class FeedRemoteDataSourceImpl @Inject constructor(
 
     // TODO: 서버 구현
     override suspend fun getFeeds(): Result<List<FeedData>> = Result.success(feeds)
+
+    override suspend fun getFeed(feedId: String): Result<FeedData> = Result.success(feeds.first())
 }
 
 

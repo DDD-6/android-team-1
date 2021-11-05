@@ -6,4 +6,6 @@ import com.editor.appcha.domain.model.Feed
 interface FeedRepository {
 
     suspend fun getFeeds(): Result<List<Feed>>
+
+    suspend fun getFeed(feedId: String): Result<Feed>
 }
