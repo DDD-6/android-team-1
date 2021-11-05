@@ -18,4 +18,7 @@ internal class FeedRepositoryImpl @Inject constructor(
 
     override suspend fun getFeed(feedId: String): Result<FeedDetail> =
         remote.getFeed(feedId).toDomain()
+
+    override suspend fun updateFavorite(feedId: String, isFavorite: Boolean): Result<Unit> =
+        remote.updateFavorite(feedId, isFavorite)
 }

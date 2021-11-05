@@ -26,6 +26,9 @@ internal class FeedRemoteDataSourceImpl @Inject constructor(
             isFavorite = false
         )
     ).toData()
+
+    override suspend fun updateFavorite(feedId: String, isFavorite: Boolean): Result<Unit> =
+        Result.success(Unit)
 }
 
 

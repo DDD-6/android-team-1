@@ -9,4 +9,6 @@ interface FeedRemoteDataSource {
     suspend fun getFeeds(): Result<List<FeedData>>
 
     suspend fun getFeed(feedId: String): Result<FeedDetailData>
+
+    suspend fun updateFavorite(feedId: String, isFavorite: Boolean): Result<Unit>
 }
