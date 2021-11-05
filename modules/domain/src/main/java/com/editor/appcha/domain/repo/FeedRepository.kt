@@ -9,4 +9,6 @@ interface FeedRepository {
     suspend fun getFeeds(): Result<List<Feed>>
 
     suspend fun getFeed(feedId: String): Result<FeedDetail>
+
+    suspend fun updateFavorite(feedId: String, isFavorite: Boolean): Result<Unit>
 }
