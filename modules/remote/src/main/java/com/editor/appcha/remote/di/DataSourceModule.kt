@@ -1,6 +1,8 @@
 package com.editor.appcha.remote.di
 
+import com.editor.appcha.data.source.BoardRemoteDataSource
 import com.editor.appcha.data.source.FeedRemoteDataSource
+import com.editor.appcha.remote.source.BoardRemoteDataSourceImpl
 import com.editor.appcha.remote.source.FeedRemoteDataSourceImpl
 import dagger.Binds
 import dagger.Module
@@ -18,4 +20,9 @@ internal abstract class DataSourceModule {
         source: FeedRemoteDataSourceImpl
     ): FeedRemoteDataSource
 
+    @Singleton
+    @Binds
+    abstract fun bindsBoardDataSource(
+        source: BoardRemoteDataSourceImpl
+    ): BoardRemoteDataSource
 }
