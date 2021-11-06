@@ -1,6 +1,7 @@
 package com.editor.appcha.data.repo
 
 import com.editor.appcha.core.arch.Result
+import com.editor.appcha.core.arch.mapper.toDomain
 import com.editor.appcha.data.model.request.PostBoardData
 import com.editor.appcha.data.model.request.PostCommentData
 import com.editor.appcha.data.source.BoardRemoteDataSource
@@ -19,7 +20,9 @@ internal class BoardRepositoryImpl @Inject constructor(
         .getBoards()
         .map { data -> data.map { it.toDomain() } }
 
-    override suspend fun getBoard(boardId: String): Result<Board> = source.getBoard(boardId)
+    override suspend fun getBoard(boardId: String): Result<Board> = source
+        .getBoard(boardId)
+        .toDomain()
 
     override suspend fun getComments(boardId: String): Result<List<Comment>> = source
         .getComments(boardId)
