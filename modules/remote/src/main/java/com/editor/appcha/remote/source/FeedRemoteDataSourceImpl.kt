@@ -10,6 +10,7 @@ import com.editor.appcha.remote.grpc.Grpc
 import com.editor.appcha.remote.model.AppRemote
 import com.editor.appcha.remote.model.FeedDetailRemote
 import com.editor.appcha.remote.model.FeedDetailRemote.Body
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 internal class FeedRemoteDataSourceImpl @Inject constructor(
@@ -60,6 +61,7 @@ internal class FeedRemoteDataSourceImpl @Inject constructor(
             isFavorite = false
         )
     ).toData()
+        .onSuccess { delay(1000L) }
 
     override suspend fun updateFavorite(feedId: String, isFavorite: Boolean): Result<Unit> =
         Result.success(Unit)
