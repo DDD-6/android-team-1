@@ -1,4 +1,4 @@
-package com.editor.appcha.data.repo
+package com.editor.appcha.data.source
 
 import com.editor.appcha.core.arch.Result
 import com.editor.appcha.data.model.BoardData
