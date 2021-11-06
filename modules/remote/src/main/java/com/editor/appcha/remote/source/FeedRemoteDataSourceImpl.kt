@@ -22,7 +22,8 @@ internal class FeedRemoteDataSourceImpl @Inject constructor(
             id = "id",
             title = "title",
             author = "author",
-            emptyList(),
+            imageUrl = "https://cdn.pixabay.com/photo/2020/03/31/14/28/paper-4987885_1280.jpg",
+            bodies = emptyList(),
             isFavorite = false
         )
     ).toData()

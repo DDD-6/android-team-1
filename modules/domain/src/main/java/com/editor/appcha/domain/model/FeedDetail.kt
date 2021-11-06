@@ -6,6 +6,7 @@ data class FeedDetail(
     val id: String,
     val title: String,
     val author: String,
+    val imageUrl: String,
     val bodies: List<Body>,
     val isFavorite: Boolean
 ) : DomainModel {
