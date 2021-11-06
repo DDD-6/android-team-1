@@ -7,7 +7,9 @@ import com.editor.appcha.data.model.FeedData
 import com.editor.appcha.data.model.FeedDetailData
 import com.editor.appcha.data.source.FeedRemoteDataSource
 import com.editor.appcha.remote.grpc.Grpc
+import com.editor.appcha.remote.model.AppRemote
 import com.editor.appcha.remote.model.FeedDetailRemote
+import com.editor.appcha.remote.model.FeedDetailRemote.Body
 import javax.inject.Inject
 
 internal class FeedRemoteDataSourceImpl @Inject constructor(
@@ -24,7 +26,37 @@ internal class FeedRemoteDataSourceImpl @Inject constructor(
             author = "author",
             imageUrl = "https://cdn.pixabay.com/photo/2020/03/31/14/28/paper-4987885_1280.jpg",
             summary = "summary",
-            bodies = emptyList(),
+            bodies = listOf(
+                Body.Text("본문이 들어갑니다. 본문이 들어갑니다. 본문이 들어갑니다. 본문이 들어갑니다. 본문이 들어갑니다. 본문이 들어갑니다."),
+                Body.Image("https://cdn.pixabay.com/photo/2020/06/18/18/03/water-5314502_1280.jpg"),
+                Body.Text("본문이 들어갑니다. 본문이 들어갑니다. 본문이 들어갑니다. 본문이 들어갑니다. 본문이 들어갑니다. 본문이 들어갑니다."),
+                Body.Image("https://cdn.pixabay.com/photo/2015/05/07/13/43/mussels-756488_1280.jpg"),
+                Body.Apps(
+                    apps = listOf(
+                        AppRemote(
+                            id = "1",
+                            name = "헤이딜러",
+                            description = "내차시세, 내차팔기 필수앱",
+                            imageUrl = "https://www.theteams.kr/includes/uploads/company_profile/PRNDCompany.png",
+                            marketUrl = "kr.perfectree.heydealer"
+                        ),
+                        AppRemote(
+                            id = "2",
+                            name = "앱이름",
+                            description = "마켓에 있는 서브 내용이 들어갑니다. 마켓에 있는 서브 내용이 들어갑니다.",
+                            imageUrl = null,
+                            marketUrl = null
+                        ),
+                        AppRemote(
+                            id = "3",
+                            name = "앱이름",
+                            description = "마켓에 있는 서브 내용이 들어갑니다. 마켓에 있는 서브 내용이 들어갑니다.",
+                            imageUrl = null,
+                            marketUrl = null
+                        )
+                    )
+                )
+            ),
             isFavorite = false
         )
     ).toData()
