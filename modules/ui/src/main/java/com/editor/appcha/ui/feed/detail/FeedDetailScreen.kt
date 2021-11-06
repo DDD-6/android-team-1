@@ -44,7 +44,11 @@ fun FeedDetailScreen(viewModel: FeedDetailViewModel = viewModel()) {
     val state by viewModel.state.collectAsState()
     val feed = state.feed
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .navigationBarsPadding()
+    ) {
         if (feed == null) {
             CircularProgressIndicator(
                 modifier = Modifier.align(Alignment.Center),
@@ -68,7 +72,7 @@ fun FeedDetailScreen(viewModel: FeedDetailViewModel = viewModel()) {
                         bodies = feed.bodies,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .navigationBarsPadding()
+                            .padding(vertical = 12.dp)
                     )
                 }
             }
