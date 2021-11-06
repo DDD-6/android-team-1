@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.core.view.WindowCompat
 import com.editor.appcha.ui.R
 import com.editor.appcha.ui.base.BaseActivity
 import com.editor.appcha.ui.base.EmptyViewEvent
@@ -25,6 +26,7 @@ class FeedDetailActivity : BaseActivity<EmptyViewModel, EmptyViewEvent>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             AppTheme {
                 ProvideWindowInsets {
