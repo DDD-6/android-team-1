@@ -26,8 +26,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.editor.appcha.ui.community.Community
-import com.editor.appcha.ui.community.CommunityWrite
+import com.editor.appcha.ui.community.CommunityScreen
 import com.editor.appcha.ui.component.AppText
 import com.editor.appcha.ui.feed.FeedScreen
 import com.editor.appcha.ui.feed.FeedViewModel
@@ -161,11 +160,7 @@ private fun HomeGraph(
         }
 
         composable(HomeRoute.Community.route) {
-            Community()
-        }
-
-        composable(route = HomeRoute.CommunityWrite.route) {
-            CommunityWrite()
+            CommunityScreen()
         }
 
         composable(

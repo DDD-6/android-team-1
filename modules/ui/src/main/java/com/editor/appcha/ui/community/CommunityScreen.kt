@@ -4,6 +4,6 @@ import androidx.compose.runtime.Composable
 import com.editor.appcha.ui.component.AppText
 
 @Composable
-fun CommunityWrite() {
-    AppText(text = "community/write")
+fun CommunityScreen() {
+    AppText(text = "community")
 }
