@@ -10,6 +10,7 @@ import com.editor.appcha.ui.base.BaseActivity
 import com.editor.appcha.ui.base.EmptyViewEvent
 import com.editor.appcha.ui.base.EmptyViewModel
 import com.editor.appcha.ui.theme.AppTheme
+import com.google.accompanist.insets.ProvideWindowInsets
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,7 +27,9 @@ class FeedDetailActivity : BaseActivity<EmptyViewModel, EmptyViewEvent>() {
 
         setContent {
             AppTheme {
-
+                ProvideWindowInsets {
+                    FeedDetailScreen()
+                }
             }
         }
     }
