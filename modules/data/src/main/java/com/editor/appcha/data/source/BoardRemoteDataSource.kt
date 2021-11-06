@@ -5,13 +5,12 @@ import com.editor.appcha.data.model.BoardData
 import com.editor.appcha.data.model.CommentData
 import com.editor.appcha.data.model.request.PostBoardData
 import com.editor.appcha.data.model.request.PostCommentData
-import com.editor.appcha.domain.model.Board
 
 interface BoardRemoteDataSource {
 
     suspend fun getBoards(): Result<List<BoardData>>
 
-    suspend fun getBoard(boardId: String): Result<Board>
+    suspend fun getBoard(boardId: String): Result<BoardData>
 
     suspend fun getComments(boardId: String): Result<List<CommentData>>
 
