@@ -6,7 +6,7 @@ import com.editor.appcha.domain.model.Comment
 import com.editor.appcha.domain.repo.BoardRepository
 import javax.inject.Inject
 
-class GetCommentsUseCase @Inject constructor(
+class GetCommentListUseCase @Inject constructor(
     private val repo: BoardRepository
 ) : UseCase<String, List<Comment>>() {
 

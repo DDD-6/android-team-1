@@ -27,6 +27,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.editor.appcha.ui.community.CommunityScreen
+import com.editor.appcha.ui.community.CommunityViewModel
 import com.editor.appcha.ui.component.AppText
 import com.editor.appcha.ui.feed.FeedScreen
 import com.editor.appcha.ui.feed.FeedViewModel
@@ -160,7 +161,8 @@ private fun HomeGraph(
         }
 
         composable(HomeRoute.Community.route) {
-            CommunityScreen()
+            val viewModel: CommunityViewModel = hiltViewModel()
+            CommunityScreen(viewModel)
         }
 
         composable(
