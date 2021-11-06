@@ -16,18 +16,9 @@ import java.time.format.DateTimeFormatter
 @Composable
 fun CommunityAuthorAndCreatedAt(author: String, createdAt: LocalDateTime) {
     Row {
+        val text = "$author ∙ ${DateTimeFormatter.ofPattern("yy.MM.dd").format(createdAt)}"
         AppText(
-            text = author,
-            style = AppTheme.typography.caption,
-            color = AppTheme.colors.gray4
-        )
-        AppText(
-            text = " ∙ ",
-            style = AppTheme.typography.caption,
-            color = AppTheme.colors.gray4
-        )
-        AppText(
-            text = DateTimeFormatter.ofPattern("yy.MM.dd").format(createdAt),
+            text = text,
             style = AppTheme.typography.caption,
             color = AppTheme.colors.gray4
         )
