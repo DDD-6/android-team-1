@@ -23,6 +23,7 @@ internal class FeedRemoteDataSourceImpl @Inject constructor(
             title = "title",
             author = "author",
             imageUrl = "https://cdn.pixabay.com/photo/2020/03/31/14/28/paper-4987885_1280.jpg",
+            summary = "summary",
             bodies = emptyList(),
             isFavorite = false
         )

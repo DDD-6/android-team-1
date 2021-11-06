@@ -8,6 +8,7 @@ data class FeedDetailData(
     val title: String,
     val author: String,
     val imageUrl: String,
+    val summary: String,
     val bodies: List<Body>,
     val isFavorite: Boolean
 ) : DataModel<FeedDetail> {
@@ -26,6 +27,7 @@ data class FeedDetailData(
         title = title,
         author = author,
         imageUrl = imageUrl,
+        summary = summary,
         bodies = bodies.map { body ->
             when (body) {
                 is Body.Text -> FeedDetail.Body.Text(body.text)

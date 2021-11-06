@@ -99,6 +99,7 @@ class FeedDetailViewModelTest : BaseTest() {
         title: String = "title",
         author: String = "author",
         imageUrl: String = "",
+        summary: String = "summary",
         bodies: List<FeedDetail.Body> = emptyList(),
         isFavorite: Boolean = false
     ): FeedDetail = FeedDetail(
@@ -106,6 +107,7 @@ class FeedDetailViewModelTest : BaseTest() {
         title = title,
         author = author,
         imageUrl = imageUrl,
+        summary = summary,
         bodies = bodies,
         isFavorite = isFavorite
     )
