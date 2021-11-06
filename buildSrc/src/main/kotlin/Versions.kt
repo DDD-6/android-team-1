@@ -18,7 +18,7 @@ object Versions {
     const val COMPOSE_VIEW_MODEL = "1.0.0-alpha07"
     const val COMPOSE_CONSTRAINT_LAYOUT = "1.0.0-beta02"
     const val COMPOSE_NAVIGATION = "2.4.0-alpha10"
-    const val APPCOMPANIST = "0.20.0"
+    const val APPCOMPANIST = "0.21.2-beta"
 
     //Image Processing
     const val GLIDE = "4.11.0"
