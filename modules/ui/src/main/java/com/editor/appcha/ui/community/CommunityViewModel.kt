@@ -18,6 +18,7 @@ class CommunityViewModel @Inject constructor(
 
     sealed class Event : ViewEvent {
         data class NavigateToDetail(val boardId: String) : Event()
+        object NavigateToPost : Event()
     }
 
     data class State(
@@ -35,5 +36,9 @@ class CommunityViewModel @Inject constructor(
 
     fun navigateToDetail(board: BoardModel) {
         event(Event.NavigateToDetail(board.id))
+    }
+
+    fun navigateToPost() {
+        event(Event.NavigateToPost)
     }
 }

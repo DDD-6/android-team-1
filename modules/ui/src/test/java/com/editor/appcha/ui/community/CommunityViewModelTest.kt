@@ -21,6 +21,7 @@ class CommunityViewModelTest : BaseTest() {
 
     @Test
     fun `ViewModel을 초기화 하면 0개 이상의 Board목록을 불러온다`() = runBlockingTest {
+        // given
         coEvery { getBoardListUseCase(Unit) } returns Result.success(listOf())
 
         // when
@@ -45,6 +46,20 @@ class CommunityViewModelTest : BaseTest() {
         // then
         val actual = viewModel.event.first()
         assertThat(actual).isEqualTo(Event.NavigateToDetail(boardId = board.id))
+    }
+
+    @Test
+    fun `Post버튼을 클릭하면 NavigateToPost Event가 발생한다`() = runBlockingTest {
+        // given
+        coEvery { getBoardListUseCase(Unit) } returns Result.success(listOf())
+        val viewModel = CommunityViewModel(getBoardListUseCase)
+
+        // when
+        viewModel.navigateToPost()
+
+        // then
+        val actual = viewModel.event.first()
+        assertThat(actual).isInstanceOf(Event.NavigateToPost::class.java)
     }
 
     private fun board(
