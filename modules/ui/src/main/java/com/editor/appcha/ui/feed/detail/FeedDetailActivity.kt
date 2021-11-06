@@ -5,23 +5,19 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.core.view.WindowCompat
 import com.editor.appcha.ui.R
 import com.editor.appcha.ui.base.BaseActivity
-import com.editor.appcha.ui.base.EmptyViewEvent
-import com.editor.appcha.ui.base.EmptyViewModel
+import com.editor.appcha.ui.feed.detail.FeedDetailViewModel.Event
 import com.editor.appcha.ui.theme.AppTheme
 import com.google.accompanist.insets.ProvideWindowInsets
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FeedDetailActivity : BaseActivity<EmptyViewModel, EmptyViewEvent>() {
+class FeedDetailActivity : BaseActivity<FeedDetailViewModel, Event>() {
 
-    override val viewModel: EmptyViewModel = EmptyViewModel()
-
-    override fun handleEvent(event: EmptyViewEvent) {
-        TODO("Not yet implemented")
-    }
+    override val viewModel: FeedDetailViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +26,14 @@ class FeedDetailActivity : BaseActivity<EmptyViewModel, EmptyViewEvent>() {
         setContent {
             AppTheme {
                 ProvideWindowInsets {
-                    FeedDetailScreen()
+                    FeedDetailScreen(viewModel)
                 }
             }
         }
+    }
+
+    override fun handleEvent(event: Event) = when (event) {
+        Event.NavigateUp -> finish()
     }
 
     override fun finish() {
