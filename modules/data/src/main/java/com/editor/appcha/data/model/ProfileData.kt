@@ -4,7 +4,6 @@ import com.editor.appcha.core.arch.model.DataModel
 import com.editor.appcha.domain.model.Profile
 
 data class ProfileData(
-    val token: String,
     val nickname: String,
     val imageUrl: String
 ) : DataModel<Profile> {
