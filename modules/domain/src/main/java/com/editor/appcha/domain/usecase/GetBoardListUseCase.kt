@@ -6,7 +6,7 @@ import com.editor.appcha.domain.model.Board
 import com.editor.appcha.domain.repo.BoardRepository
 import javax.inject.Inject
 
-class GetBoardsUseCase @Inject constructor(
+class GetBoardListUseCase @Inject constructor(
     private val repo: BoardRepository
 ) : UseCase<Unit, List<Board>>() {
 

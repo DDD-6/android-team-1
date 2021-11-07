@@ -6,8 +6,6 @@ sealed class HomeRoute(val route: String) {
 
     object Community : HomeRoute("community")
 
-    object CommunityWrite : HomeRoute("community/write")
-
     object Profile : HomeRoute("profile") {
         const val PROFILE_ID_KEY = "profileId"
     }
