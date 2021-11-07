@@ -1,10 +1,12 @@
 package com.editor.appcha.ui.feed
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -17,14 +19,15 @@ fun FeedSummary(
     modifier: Modifier = Modifier,
     paddingValues: PaddingValues = PaddingValues()
 ) {
-    Surface(
+
+    Box(
         modifier = modifier
             .background(AppTheme.colors.gray5)
-            .padding(paddingValues),
-        color = AppTheme.colors.gray5
+            .padding(paddingValues)
+            .heightIn(min = 40.dp)
     ) {
         AppText(
-            modifier = Modifier,
+            modifier = Modifier.align(Alignment.CenterStart),
             text = summary,
             color = AppTheme.colors.gray3,
             style = AppTheme.typography.body2

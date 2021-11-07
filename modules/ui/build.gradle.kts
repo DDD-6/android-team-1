@@ -20,6 +20,7 @@ android {
     }
 
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -40,8 +41,12 @@ android {
 }
 
 dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
+    
     implementation(project(Module.DOMAIN))
     implementation(project(Module.CORE_ARCH))
+
+    implementation(Dependencies.ACTIVITY_COMPOSE)
 
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.COMPOSE_UI)
@@ -53,6 +58,7 @@ dependencies {
     implementation(Dependencies.COMPOSE_NAVIGATION)
 
     implementation(Dependencies.APPCOMPANIST_SYSTEM_UI_CONTROLLER)
+    implementation(Dependencies.APPCOMPANIST_INSETS)
     implementation(Dependencies.COIL_COMPOSE)
 
     implementation(Dependencies.LIFECYCLE_RUNTIME)

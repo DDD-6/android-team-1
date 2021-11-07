@@ -63,7 +63,7 @@ fun FeedTitleAndAuthor(
                 start = horizontalPadding,
                 end = horizontalPadding,
                 top = 20.dp,
-                bottom = 16.dp
+                bottom = 20.dp
             )
     ) {
         AppText(

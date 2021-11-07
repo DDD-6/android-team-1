@@ -3,7 +3,7 @@ package com.editor.appcha.ui.feed
 import com.editor.appcha.core.arch.Result
 import com.editor.appcha.domain.model.App
 import com.editor.appcha.domain.model.Feed
-import com.editor.appcha.domain.usecase.GetFeedList
+import com.editor.appcha.domain.usecase.GetFeedListUseCase
 import com.editor.appcha.ui.BaseTest
 import com.editor.appcha.ui.feed.FeedViewModel.Event
 import com.editor.appcha.ui.model.FeedModel
@@ -18,7 +18,7 @@ import org.junit.Test
 @ExperimentalCoroutinesApi
 class FeedViewModelTest : BaseTest() {
 
-    private val getFeedList: GetFeedList = mockk()
+    private val getFeedList: GetFeedListUseCase = mockk()
 
     @Test
     fun `ViewModel을 초기화 하면 0개 이상의 Feed 목록을 불러온다`() = runBlockingTest {
