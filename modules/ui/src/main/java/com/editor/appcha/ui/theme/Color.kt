@@ -23,6 +23,9 @@ val StatusCaution = Color(0xFFFF8E3C)
 val StatusBarColor = Color(0xFFE8E8EA)
 val SplashBarColor = Color(0x14212121)
 
+val kakaoButton = Color(0xFFFEE500)
+val kakaoTitle = Color(0xFF191919)
+
 @Stable
 class AppColors(
     gray1: Color = Gray1,
