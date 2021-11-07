@@ -21,6 +21,7 @@ val StatusError = Color(0xFFEB4B4B)
 val StatusCaution = Color(0xFFFF8E3C)
 
 val StatusBarColor = Color(0xFFE8E8EA)
+val SplashBarColor = Color(0x14212121)
 
 @Stable
 class AppColors(

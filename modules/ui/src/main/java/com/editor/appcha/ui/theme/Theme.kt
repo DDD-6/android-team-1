@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun AppTheme(
@@ -26,6 +27,23 @@ fun AppTheme(
             content = content,
         )
     }
+}
+
+@Composable
+fun SplashTheme(
+    content: @Composable () -> Unit
+) {
+    val systemUiController = rememberSystemUiController()
+    systemUiController.apply {
+        isNavigationBarVisible = false
+        setStatusBarColor(
+            color = SplashBarColor,
+            darkIcons = true)
+    }
+
+    MaterialTheme(
+        content = content
+    )
 }
 
 object AppTheme {

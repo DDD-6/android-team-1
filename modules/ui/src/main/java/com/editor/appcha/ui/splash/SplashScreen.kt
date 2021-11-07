@@ -1,17 +1,17 @@
 package com.editor.appcha.ui.splash
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.editor.appcha.ui.R
-import com.editor.appcha.ui.component.AppText
 import com.editor.appcha.ui.theme.AppTheme
 
 @Composable
@@ -22,15 +22,15 @@ fun SplashScreen() {
             .fillMaxSize()
             .background(Color.White)
     ) {
-        AppText(
-            text = stringResource(R.string.app_name),
-            color = AppTheme.colors.primary,
-            style = MaterialTheme.typography.h1
-        )
+        Image(
+            painter = painterResource(R.drawable.img_splash),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize())
     }
 }
 
-@Preview(widthDp = 300, heightDp = 400)
+@Preview(widthDp = 360, heightDp = 640)
 @Composable
 fun SplashScreenPreview() {
     AppTheme {
