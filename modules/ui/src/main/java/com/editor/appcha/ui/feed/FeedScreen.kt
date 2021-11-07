@@ -80,7 +80,7 @@ private fun FeedItems(
     LazyColumn(
         state = state,
         verticalArrangement = Arrangement.spacedBy(24.dp),
-        contentPadding = PaddingValues(vertical = 16.dp)
+        contentPadding = PaddingValues(top = 16.dp)
     ) {
         items(
             items = feeds,

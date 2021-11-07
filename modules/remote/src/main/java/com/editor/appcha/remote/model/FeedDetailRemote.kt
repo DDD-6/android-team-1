@@ -7,6 +7,8 @@ data class FeedDetailRemote(
     val id: String,
     val title: String,
     val author: String,
+    val imageUrl: String,
+    val summary: String,
     val bodies: List<Body>,
     val isFavorite: Boolean
 ) : RemoteModel<FeedDetailData> {
@@ -24,6 +26,8 @@ data class FeedDetailRemote(
         id = id,
         title = title,
         author = author,
+        imageUrl = imageUrl,
+        summary = summary,
         bodies = bodies.map { body ->
             when (body) {
                 is Body.Text -> FeedDetailData.Body.Text(body.text)

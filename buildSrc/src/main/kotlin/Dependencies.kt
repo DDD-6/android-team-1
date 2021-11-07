@@ -57,6 +57,8 @@ object Dependencies {
 
     const val APPCOMPANIST_SYSTEM_UI_CONTROLLER =
         "com.google.accompanist:accompanist-systemuicontroller:${Versions.APPCOMPANIST}"
+    const val APPCOMPANIST_INSETS =
+        "com.google.accompanist:accompanist-insets:${Versions.APPCOMPANIST}"
 
     //Glide
     const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
