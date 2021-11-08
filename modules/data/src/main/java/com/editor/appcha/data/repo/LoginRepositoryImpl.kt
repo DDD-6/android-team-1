@@ -1,6 +1,7 @@
 package com.editor.appcha.data.repo
 
 import com.editor.appcha.core.arch.Result
+import com.editor.appcha.core.arch.buildResultCatching
 import com.editor.appcha.data.source.LoginRemoteDataSource
 import com.editor.appcha.data.source.TokenLocalDataSource
 import com.editor.appcha.domain.repo.LoginRepository
@@ -12,10 +13,10 @@ internal class LoginRepositoryImpl @Inject constructor(
 ) : LoginRepository {
 
     override suspend fun isLoggedIn(): Result<Boolean> =
-        tokenLocalDataSource.getToken()
+        tokenLocalDataSource.isTokenExist()
 
-    override suspend fun loginKakao(token: String): Result<Unit> {
+    override suspend fun loginKakao(token: String): Result<Unit> = buildResultCatching {
         val accessToken = loginRemoteDataSource.login(token).getOrThrow().accessToken
-        return tokenLocalDataSource.setToken(accessToken)
+        tokenLocalDataSource.setToken(accessToken)
     }
 }

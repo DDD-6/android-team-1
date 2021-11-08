@@ -26,9 +26,8 @@ import androidx.compose.ui.unit.dp
 import com.editor.appcha.ui.R
 import com.editor.appcha.ui.component.AppText
 import com.editor.appcha.ui.theme.AppTheme
-import com.editor.appcha.ui.theme.buttonKakao
-import com.editor.appcha.ui.theme.kakaoButton
-import com.editor.appcha.ui.theme.kakaoTitle
+import com.editor.appcha.ui.theme.KakaoButton
+import com.editor.appcha.ui.theme.KakaoTitle
 
 @Composable
 fun LoginActivityScreen(viewModel: LoginViewModel, onKakao: () -> Unit) {
@@ -72,8 +71,8 @@ fun KakaoLoginButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = Modifier.fillMaxWidth().height(buttonKakao),
-        colors = ButtonDefaults.buttonColors(kakaoButton)
+        modifier = Modifier.fillMaxWidth().height(45.dp),
+        colors = ButtonDefaults.buttonColors(KakaoButton)
     ) {
         Icon(
             painter = painterResource(R.drawable.ic_kakao),
@@ -83,7 +82,7 @@ fun KakaoLoginButton(
         Spacer(Modifier.size(10.dp))
         AppText(
             text = stringResource(R.string.kakao_title),
-            color = kakaoTitle,
+            color = KakaoTitle,
             style = AppTheme.typography.caption2)
     }
 }
