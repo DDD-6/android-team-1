@@ -24,21 +24,15 @@ class LoginViewModel @Inject constructor(
         val isLoading: Boolean = false
     ) : ViewState
 
-    fun login(token: String) = launch {
-//        loginUseCase(token)
-//            .onStart {
-//                updateState { it.copy(isLoading = true) }
-//            }
-//            .onCompletion {
-//                updateState { it.copy(isLoading = false) }
-//            }
-//            .catch { exception ->
-//                updateState { it.copy(error = exception.message.toString(), isLoading = false) }
-//            }
-//            .collect {
-//                if (it.isExist) {
-//                    event(Event.Success)
-//                }
-//            }
+    fun login(token: String) {
+        launch {
+            loginUseCase(token)
+                .onSuccess {
+                    event(Event.StartHome)
+                }
+                .onFailure {
+                    event(Event.ShowErrorToast)
+                }
+        }
     }
 }

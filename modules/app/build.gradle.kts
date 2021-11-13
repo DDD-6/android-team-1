@@ -57,6 +57,7 @@ hilt {
 dependencies {
     implementation(project(Dependencies.Module.UI))
     implementation(project(Dependencies.Module.REMOTE))
+    implementation(project(Dependencies.Module.LOCAL))
 
     implementation(Dependencies.STARTUP)
 

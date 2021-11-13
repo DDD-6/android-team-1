@@ -60,6 +60,12 @@ data class AppTypography(
         fontSize = 12.sp,
         fontWeight = FontWeight.Normal,
         lineHeight = 16.sp
+    ),
+    val caption2: TextStyle = TextStyle(
+        fontFamily = SpoqaHanSansNeo,
+        fontSize = 12.sp,
+        fontWeight = FontWeight.Bold,
+        lineHeight = 16.sp
     )
 )
 
@@ -76,7 +82,8 @@ enum class AppTextStyle(
     Body1(18.sp, 9.sp),
     Body2(17.sp, 5.sp),
     Button(15.sp, 5.sp),
-    Caption(12.sp, 4.sp)
+    Caption(12.sp, 4.sp),
+    Caption2(12.sp, 4.sp)
 }
 
 @Composable
@@ -96,6 +103,7 @@ fun appTextStyle(style: TextStyle = LocalTextStyle.current): AppTextStyle {
         equals(AppTheme.typography.body2, style) -> AppTextStyle.Body2
         equals(AppTheme.typography.button, style) -> AppTextStyle.Button
         equals(AppTheme.typography.caption, style) -> AppTextStyle.Caption
+        equals(AppTheme.typography.caption2, style) -> AppTextStyle.Caption2
         else -> AppTextStyle.Unspecified
     }
 }

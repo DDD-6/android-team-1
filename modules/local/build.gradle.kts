@@ -24,9 +24,12 @@ android {
 
 dependencies {
     implementation(project(Dependencies.Module.DATA))
+    implementation(project(Dependencies.Module.CORE_ARCH))
 
     implementation(Dependencies.HILT)
     kapt(Dependencies.HILT_COMPILER)
 
     implementation(Dependencies.COROUTINES_CORE)
+
+    implementation(Dependencies.PREFERENCE_KTX)
 }

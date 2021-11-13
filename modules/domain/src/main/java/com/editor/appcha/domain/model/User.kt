@@ -1,11 +1,9 @@
 package com.editor.appcha.domain.model
 
-data class User(
-    val isExist: Boolean,
-    val info: Profile
-) {
+import com.editor.appcha.core.arch.model.DomainModel
 
-    data class Profile(
-        val nickname: String
-    )
-}
+data class User(
+    val id: String,
+    val nickname: String,
+    val imageUrl: String
+) : DomainModel

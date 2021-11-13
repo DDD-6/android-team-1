@@ -4,14 +4,13 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.ui.graphics.Color
+import androidx.core.view.WindowCompat
 import com.editor.appcha.ui.R
 import com.editor.appcha.ui.base.BaseActivity
 import com.editor.appcha.ui.home.HomeActivity
 import com.editor.appcha.ui.login.LoginActivity
 import com.editor.appcha.ui.splash.SplashViewModel.Event
-import com.editor.appcha.ui.theme.AppTheme
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.editor.appcha.ui.theme.SplashTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @SuppressLint("CustomSplashScreen")
@@ -22,12 +21,10 @@ class SplashActivity : BaseActivity<SplashViewModel, Event>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
-            val systemUiController = rememberSystemUiController()
-            systemUiController.setSystemBarsColor(color = Color.White)
-
-            AppTheme {
+            SplashTheme {
                 SplashScreen()
             }
         }
