@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.core.view.WindowCompat
 import com.editor.appcha.ui.R
 import com.editor.appcha.ui.base.BaseActivity
 import com.editor.appcha.ui.home.HomeActivity
@@ -21,7 +20,6 @@ class SplashActivity : BaseActivity<SplashViewModel, Event>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
             SplashTheme {
