@@ -60,6 +60,7 @@ dependencies {
     implementation(Dependencies.APPCOMPANIST_SYSTEM_UI_CONTROLLER)
     implementation(Dependencies.APPCOMPANIST_INSETS)
     implementation(Dependencies.COIL_COMPOSE)
+    implementation(Dependencies.LOTTIE_COMPOSE)
 
     implementation(Dependencies.LIFECYCLE_RUNTIME)
 

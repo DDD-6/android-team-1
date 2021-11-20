@@ -24,7 +24,7 @@ object Versions {
     const val COIL = "1.4.0"
 
     //Animation
-    const val LOTTIE = "1.0.0-alpha02"
+    const val LOTTIE = "4.2.1"
 
     //Dependency Injection
     const val HILT = "2.38.1"
