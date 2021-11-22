@@ -26,7 +26,7 @@ class LoginActivity : BaseActivity<LoginViewModel, Event>() {
             AppTheme {
                 LoginActivityScreen(
                     viewModel = viewModel,
-                    onKakao = { tryKakaoLogin() }
+                    onKakao = { viewModel.login("token") }
                 )
             }
         }
