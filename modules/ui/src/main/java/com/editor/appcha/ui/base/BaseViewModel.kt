@@ -28,7 +28,7 @@ abstract class BaseViewModel<VE : ViewEvent, VS : ViewState>(
     private val _event: MutableEventFlow<VE> = MutableEventFlow()
     val event: EventFlow<VE> = _event.asEventFlow()
 
-    protected fun event(event: VE): Job = viewModelScope.launch { _event.emit(event) }
+    protected fun event(event: VE): Job = launch { _event.emit(event) }
 
     protected fun updateState(function: (VS) -> VS) = _state.update(function)
 

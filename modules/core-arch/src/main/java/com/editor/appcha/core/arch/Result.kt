@@ -116,3 +116,6 @@ inline fun <T> buildResultCatching(block: () -> T): Result<T> =
     } catch (e: Throwable) {
         Result.failure(e)
     }
+
+inline fun <T, R> Result<List<T>>.mapList(transform: (T) -> R): Result<List<R>> =
+    map { it.map(transform) }

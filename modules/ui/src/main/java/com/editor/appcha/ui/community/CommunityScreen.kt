@@ -22,9 +22,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.editor.appcha.ui.R
+import com.editor.appcha.ui.base.observe
+import com.editor.appcha.ui.community.CommunityViewModel.Event
+import com.editor.appcha.ui.community.detail.CommunityDetailActivity
 import com.editor.appcha.ui.component.AppText
 import com.editor.appcha.ui.model.BoardModel
 import com.editor.appcha.ui.theme.AppTheme
@@ -33,6 +37,14 @@ import com.editor.appcha.ui.theme.AppTheme
 fun CommunityScreen(viewModel: CommunityViewModel) {
     val state by viewModel.state.collectAsState()
     val boards = state.boards
+    val context = LocalContext.current
+
+    viewModel.event.observe { event ->
+        when (event) {
+            is Event.NavigateToDetail -> CommunityDetailActivity.launch(context, event.boardId)
+            Event.NavigateToPost -> Unit // TODO: NavigateToPost
+        }
+    }
 
     Box(modifier = Modifier.fillMaxSize()) {
         if (boards.isNullOrEmpty()) {
