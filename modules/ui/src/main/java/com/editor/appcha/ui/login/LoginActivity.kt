@@ -10,7 +10,7 @@ import com.editor.appcha.api.kakao.KakaoLoginProvider
 import com.editor.appcha.ui.base.BaseActivity
 import com.editor.appcha.ui.home.HomeActivity
 import com.editor.appcha.ui.login.LoginViewModel.Event
-import com.editor.appcha.ui.theme.AppTheme
+import com.editor.appcha.ui.theme.SplashTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,8 +22,9 @@ class LoginActivity : BaseActivity<LoginViewModel, Event>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
-            AppTheme {
+            SplashTheme {
                 LoginActivityScreen(
                     viewModel = viewModel,
                     onKakao = { viewModel.login("token") }

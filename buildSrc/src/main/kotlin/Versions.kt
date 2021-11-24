@@ -21,7 +21,10 @@ object Versions {
     const val APPCOMPANIST = "0.21.2-beta"
 
     //Image Processing
-    const val GLIDE = "4.11.0"
+    const val COIL = "1.4.0"
+
+    //Animation
+    const val LOTTIE = "4.2.1"
 
     //Dependency Injection
     const val HILT = "2.38.1"

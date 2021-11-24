@@ -60,11 +60,9 @@ object Dependencies {
     const val APPCOMPANIST_INSETS =
         "com.google.accompanist:accompanist-insets:${Versions.APPCOMPANIST}"
 
-    //Glide
-    const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
-    const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE}"
+    const val COIL_COMPOSE = "io.coil-kt:coil-compose:${Versions.COIL}"
 
-    const val COIL_COMPOSE = "io.coil-kt:coil-compose:1.4.0"
+    const val LOTTIE_COMPOSE = "com.airbnb.android:lottie-compose:${Versions.LOTTIE}"
 
     //Dependency Injection
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"

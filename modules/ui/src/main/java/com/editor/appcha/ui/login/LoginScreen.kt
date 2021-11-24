@@ -1,7 +1,6 @@
 package com.editor.appcha.ui.login
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -20,9 +19,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.editor.appcha.ui.R
 import com.editor.appcha.ui.component.AppText
 import com.editor.appcha.ui.theme.AppTheme
@@ -49,20 +53,32 @@ fun LoginScreen(
             .fillMaxSize()
             .background(Color.White)
     ) {
+        LoginLottieAnimation()
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .background(Color.White)
-                .padding(30.dp),
-            verticalArrangement = Arrangement.Center
+                .fillMaxWidth()
+                .padding(vertical = 40.dp, horizontal = 30.dp)
+                .align(Alignment.BottomCenter)
         ) {
             KakaoLoginButton(onClick = onKakao)
         }
 
         if (isLoading) {
-            CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            CircularProgressIndicator(
+                modifier = Modifier.align(Alignment.Center)
+            )
         }
     }
+}
+
+@Composable
+fun LoginLottieAnimation(
+) {
+    val lottieComposition by rememberLottieComposition(LottieCompositionSpec.Asset("lottie_login.json"))
+    LottieAnimation(
+        composition = lottieComposition,
+        iterations = LottieConstants.IterateForever,
+        contentScale = ContentScale.FillWidth)
 }
 
 @Composable
@@ -71,8 +87,11 @@ fun KakaoLoginButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = Modifier.fillMaxWidth().height(45.dp),
-        colors = ButtonDefaults.buttonColors(KakaoButton)
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(45.dp),
+        colors = ButtonDefaults.buttonColors(KakaoButton),
+        elevation = ButtonDefaults.elevation(0.dp)
     ) {
         Icon(
             painter = painterResource(R.drawable.ic_kakao),

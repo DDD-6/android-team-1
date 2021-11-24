@@ -35,7 +35,7 @@ fun SplashTheme(
 ) {
     val systemUiController = rememberSystemUiController()
     systemUiController.apply {
-        isNavigationBarVisible = false
+        isStatusBarVisible = false
         setStatusBarColor(
             color = SplashBarColor,
             darkIcons = true)
